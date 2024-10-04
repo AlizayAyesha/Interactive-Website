@@ -2,34 +2,42 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
-}
 
+}
 
 body {
   margin: 0;
-  padding: 0 40px; /* Padding for body content */
+  padding: 0 40px;
+  /* Padding for body content */
   font-family: 'Times New Roman', Times, serif;
   background: rgba(125, 16, 16, 0.922);
-  overflow-y: scroll; /* Enable vertical scrollbar when content overflows */
+  overflow-y: scroll;
+  /* Enable vertical scrollbar when content overflows */
+  overflow-x: hidden;
 
 }
 
 /*popup*/
 
-.newsletter{
+.newsletter {
   margin-bottom: 0px;
-  display: flex; /* Use flexbox to center align-items */
-  justify-content: center; /* Center items horizontally */
+  display: flex;
+  /* Use flexbox to center align-items */
+  justify-content: center;
+  /* Center items horizontally */
   width: 170px;
-  margin: 0 auto; /* Center the elements horizontally */
+  margin: 0 auto;
+  /* Center the elements horizontally */
 }
 
 /* Additional styling for the image */
 .newsletter {
-  display: block; /* Ensures the image is displayed as a block element */
-  max-width: 100%; /* Optional: Ensure the image does not exceed container width */
-  height: auto; /* Maintain aspect ratio */
+  display: block;
+  /* Ensures the image is displayed as a block element */
+  max-width: 100%;
+  /* Optional: Ensure the image does not exceed container width */
+  height: auto;
+  /* Maintain aspect ratio */
 }
 
 /* Styles for the close button */
@@ -74,21 +82,26 @@ body {
   border-radius: 5px;
   transition: all 0.4s;
   z-index: 100;
-  display: none; /* Hidden by default */
+  display: none;
+  /* Hidden by default */
 }
+
 #popup.active {
-  display: block; /* Show popup when active class is added */
+  display: block;
+  /* Show popup when active class is added */
   visibility: visible;
   opacity: 1;
 }
 
 /* Styles for the blur effect */
 .blur {
-  filter: blur(5px); /* Blur effect for the background */
-  -webkit-filter: blur(5px); /* For older versions of Safari */
+  filter: blur(5px);
+  /* Blur effect for the background */
+  -webkit-filter: blur(5px);
+  /* For older versions of Safari */
 }
 
-#popup .content{
+#popup .content {
   position: relative;
   width: 80%;
   display: flex;
@@ -102,24 +115,24 @@ body {
   max-width: 150px;
 }
 
-.align-text{
+.align-text {
   text-align: center;
   font-weight: 1000;
   font-size: 30px;
 }
 
-#popup .content .align-text{
- margin: 30px 0 10px;
- color:#000;
- font-size: 240px;
- font-weight: 700;
+#popup .content .align-text {
+  margin: 30px 0 10px;
+  color: #000;
+  font-size: 240px;
+  font-weight: 700;
 }
 
-#popup .content{
+#popup .content {
   width: 40%;
 }
 
-.input-field{
+.input-field {
   position: relative;
   width: 100%;
   margin-top: 20px;
@@ -139,7 +152,7 @@ body {
 }
 
 
-.input-field .submit-btn{
+.input-field .submit-btn {
   width: 100%;
   padding: 15px 20px;
   color: #000000;
@@ -154,19 +167,23 @@ body {
   transition: all 0.3s;
   cursor: pointer;
 }
-.input-field .submit-btn:hover{
-  background-color:#a8a1a1 ;
+
+.input-field .submit-btn:hover {
+  background-color: #a8a1a1;
 }
 
-#popup .close{
+#popup .close {
   position: absolute;
   top: 5px;
   right: 10px;
   cursor: pointer;
 }
+
 .close .close-icon {
-  width: 20px; /* Adjust close icon size */
-  height: auto; /* Maintain aspect ratio */
+  width: 20px;
+  /* Adjust close icon size */
+  height: auto;
+  /* Maintain aspect ratio */
 }
 
 /*navbar*/
@@ -235,14 +252,16 @@ body {
 }
 
 .menu-toggle {
-  display: none; /* Hidden by default */
+  display: none;
+  /* Hidden by default */
   cursor: pointer;
 }
 
 
 @media (max-width: 992px) {
   .navbar .navbar-list {
-    display: none; /* Hide navbar list by default on smaller screens */
+    display: none;
+    /* Hide navbar list by default on smaller screens */
     width: 100%;
     background-color: #fff;
     padding: 20px;
@@ -255,10 +274,13 @@ body {
   }
 
 
-    .menu-toggle {
-    display: block; /* Display menu toggle button on smaller screens */
-    margin-left: 30px; /* Adjust margin as needed */
+  .menu-toggle {
+    display: block;
+    /* Display menu toggle button on smaller screens */
+    margin-left: 30px;
+    /* Adjust margin as needed */
   }
+
   .menu-toggle .bar {
     width: 30px;
     height: 3px;
@@ -268,31 +290,38 @@ body {
   }
 
   .menu-toggle .bar:nth-child(1) {
-    transform: translateY(9px) rotate(deg); /* Initial state, no rotation */
+    transform: translateY(9px) rotate(deg);
+    /* Initial state, no rotation */
   }
-  
+
   .menu-toggle.menu-open .bar:nth-child(1) {
-    transform: translateY(9px) rotate(-45deg); /* Rotate when menu-open is active */
+    transform: translateY(9px) rotate(-45deg);
+    /* Rotate when menu-open is active */
   }
-  
+
   .menu-toggle .bar:nth-child(2) {
-    opacity: 1; /* Ensure middle bar is visible */
+    opacity: 1;
+    /* Ensure middle bar is visible */
   }
-  
+
   .menu-toggle.menu-open .bar:nth-child(2) {
-    opacity: 0; /* Hide middle bar when menu-open is active */
+    opacity: 0;
+    /* Hide middle bar when menu-open is active */
   }
-  
+
   .menu-toggle .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(deg); /* Initial state, no rotation */
+    transform: translateY(-9px) rotate(deg);
+    /* Initial state, no rotation */
   }
-  
+
   .menu-toggle.menu-open .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(45deg); /* Rotate when menu-open is active */
+    transform: translateY(-9px) rotate(45deg);
+    /* Rotate when menu-open is active */
   }
-  
+
   .navbar .navbar-list.active {
-    display: flex; /* Show navbar list when menu is open */
+    display: flex;
+    /* Show navbar list when menu is open */
   }
 }
 
@@ -304,21 +333,22 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  transition: transform 0.1s ease-out; /* Add transition for smooth movement */
+  transition: transform 0.1s ease-out;
+  /* Add transition for smooth movement */
 }
 
-.space{
+.space {
   margin-top: 550px;
 }
 
-.flip-card  {
- background-color: transparent;
+.flip-card {
+  background-color: transparent;
   top: 0;
   left: 35%;
   margin: 20px;
   transform-style: preserve-3d;
   z-index: 1;
-  position:relative;
+  position: relative;
 }
 
 .flip-card-front,
@@ -327,7 +357,7 @@ body {
   min-height: 600px;
   height: auto;
   background-color: #000000;
-  background-image:        url(imgcard/card2.png);
+  background-image: url(imgcard/card2.png);
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -380,7 +410,7 @@ body {
 }
 
 .space1 {
- margin-top: 400px;
+  margin-top: 400px;
 }
 
 .inner .icon {
@@ -410,4 +440,46 @@ body {
 
 .flip-card:hover .flip-card-back {
   transform: rotateY(0deg);
+}
+
+.space1 {
+  margin-top: 0px;
+}
+
+/* Responsive for large screens (desktops, large laptops) */
+@media (min-width: 1400px) {
+  #popup {
+    width: 600px;
+    height: 600px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .flip-card {
+    width: 400px;
+    height: 600px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    width: 400px;
+    height: 600px;
+  }
+
+  .navbar .navbar-list li {
+    margin-right: 30px;
+    /* Larger spacing between menu items */
+  }
+
+  .navbar .btn {
+    padding: 20px 40px;
+    /* Larger button */
+  }
+
+  .space1 {
+    margin-top: 1050px;
+  }
 }
