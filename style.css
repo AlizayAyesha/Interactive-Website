@@ -11,8 +11,7 @@ body {
   padding: 0 40px; /* Padding for body content */
   font-family: 'Times New Roman', Times, serif;
   background: rgba(125, 16, 16, 0.922);
-  overflow-y: scroll; /* Enable vertical scrollbar when content overflows */
-
+  overflow: hidden scroll; /* Enable vertical scrollbar when content overflows */
 }
 
 /*popup*/
@@ -410,4 +409,5 @@ body {
 
 .flip-card:hover .flip-card-back {
   transform: rotateY(0deg);
+
 }
