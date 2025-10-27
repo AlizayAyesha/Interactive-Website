@@ -310,11 +310,33 @@ body {
   margin-top: 550px;
 }
 
+/* Featured Section Styles */
+.featured-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.featured-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.featured-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .flip-card  {
  background-color: transparent;
-  top: 0;
-  left: 35%;
-  margin: 20px;
+  margin: 0;
   transform-style: preserve-3d;
   z-index: 1;
   position:relative;
