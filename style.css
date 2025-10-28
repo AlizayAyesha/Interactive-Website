@@ -8,10 +8,11 @@
 
 body {
   margin: 0;
-  padding: 0 40px; /* Padding for body content */
-  font-family: 'Times New Roman', Times, serif;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
   background: rgba(125, 16, 16, 0.922);
-  overflow: hidden scroll; /* Enable vertical scrollbar when content overflows */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /*popup*/
@@ -61,19 +62,22 @@ body {
 }
 
 #popup {
-  width: 500px;
-  height: 500px;
-  padding: 50px 50px;
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  max-height: 90vh;
+  padding: 30px 20px;
   background-color: #fff;
   position: fixed;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 10px;
   transition: all 0.4s;
-  z-index: 100;
-  display: none; /* Hidden by default */
+  z-index: 1000;
+  display: none;
+  overflow-y: auto;
 }
 #popup.active {
   display: block; /* Show popup when active class is added */
@@ -171,14 +175,17 @@ body {
 /*navbar*/
 
 .navbar {
-  position: relative;
+  position: sticky;
+  top: 0;
   color: #000;
   background-color: azure;
-  padding: 20px 30px;
+  padding: 15px 20px;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  width: 80px;
+  width: 60px;
   height: auto;
 }
 
@@ -186,112 +193,126 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.navbar .navbar-collapse {
-  display: flex;
-  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .navbar .navbar-list {
   display: flex;
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
 .navbar .navbar-list li {
-  margin-right: 20px;
+  margin: 0 10px;
 }
 
 .navbar .navbar-list li a {
   display: block;
   color: #000;
-  padding: 15px;
+  padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.2s;
+  transition: all 0.3s;
+  border-radius: 5px;
 }
 
-.navbar a:hover {
+.navbar .navbar-list li a:hover {
   background-color: #fded36;
+  transform: translateY(-2px);
 }
 
 .navbar .btn {
-  margin-left: 30px;
-  padding: 15px 30px;
+  padding: 10px 25px;
   color: #000000;
   background-color: yellow;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  border-radius: 5px;
 }
 
 .navbar .btn:hover {
-  background-color: #a8a1a1;
+  background-color: #fded36;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .menu-toggle {
-  display: none; /* Hidden by default */
+  display: none;
+  flex-direction: column;
   cursor: pointer;
+  z-index: 1001;
 }
 
 
+.menu-toggle .bar {
+  width: 28px;
+  height: 3px;
+  background-color: #2b2b2b;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+.menu-toggle.menu-open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.menu-open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.menu-open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Styles */
 @media (max-width: 992px) {
   .navbar .navbar-list {
-    display: none; /* Hide navbar list by default on smaller screens */
+    display: none;
     width: 100%;
-    background-color: #fff;
+    background-color: rgba(240, 255, 255, 0.98);
     padding: 20px;
-    border-top: 1px solid #f4f5f5;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 70px;
     left: 0;
-    z-index: 1;
+    right: 0;
+    z-index: 998;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
   }
 
-
-    .menu-toggle {
-    display: block; /* Display menu toggle button on smaller screens */
-    margin-left: 30px; /* Adjust margin as needed */
-  }
-  .menu-toggle .bar {
-    width: 30px;
-    height: 3px;
-    background-color: #2b2b2b;
-    margin: 6px;
-    transition: all 0.3s;
-  }
-
-  .menu-toggle .bar:nth-child(1) {
-    transform: translateY(9px) rotate(deg); /* Initial state, no rotation */
-  }
-  
-  .menu-toggle.menu-open .bar:nth-child(1) {
-    transform: translateY(9px) rotate(-45deg); /* Rotate when menu-open is active */
-  }
-  
-  .menu-toggle .bar:nth-child(2) {
-    opacity: 1; /* Ensure middle bar is visible */
-  }
-  
-  .menu-toggle.menu-open .bar:nth-child(2) {
-    opacity: 0; /* Hide middle bar when menu-open is active */
-  }
-  
-  .menu-toggle .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(deg); /* Initial state, no rotation */
-  }
-  
-  .menu-toggle.menu-open .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(45deg); /* Rotate when menu-open is active */
-  }
-  
   .navbar .navbar-list.active {
-    display: flex; /* Show navbar list when menu is open */
+    display: flex;
+  }
+
+  .navbar .navbar-list li {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .navbar .navbar-list li a {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .logo {
+    width: 50px;
   }
 }
 
@@ -306,55 +327,70 @@ body {
   transition: transform 0.1s ease-out; /* Add transition for smooth movement */
 }
 
+.content {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 400px;
+  overflow: hidden;
+}
+
 .space{
-  margin-top: 550px;
+  margin-top: 0;
 }
 
 /* Featured Section Styles */
 .featured-section {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
+  background: linear-gradient(180deg, rgba(125, 16, 16, 0.922) 0%, rgba(80, 10, 10, 0.95) 100%);
 }
 
 .featured-title {
-  font-size: 48px;
+  font-size: clamp(32px, 5vw, 48px);
   font-weight: 700;
   color: #fff;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .featured-cards {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
   justify-content: center;
   gap: 40px;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-.flip-card  {
- background-color: transparent;
-  margin: 0;
-  transform-style: preserve-3d;
-  z-index: 1;
-  position:relative;
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
 }
 
 .flip-card-front,
 .flip-card-back {
-  width: 380px;
-  min-height: 600px;
+  width: 100%;
+  min-height: 500px;
   height: auto;
   background-color: #000000;
-  background-image:        url(imgcard/card2.png);
+  background-image: url(imgcard/card2.png);
   background-size: cover;
   background-position: center;
   text-align: center;
   backface-visibility: hidden;
   transform-style: preserve-3d;
   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
 }
 
 .flip-card:nth-of-type(2) .flip-card-front,
@@ -393,36 +429,51 @@ body {
 .flip-card-front .inner,
 .flip-card-back .inner {
   width: 100%;
-  padding: 40px;
+  padding: 30px 20px;
   position: absolute;
   top: 50%;
+  left: 0;
   transform: translateY(-50%) translateZ(60px) scale(0.94);
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .space1 {
- margin-top: 400px;
+  margin-top: 0;
+  height: 150px;
 }
 
 .inner .icon {
   width: 70px;
-  margin-bottom: 5px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
 .inner h3 {
-  top: 90px;
-  margin-bottom: 8px;
+  margin: 15px 0 10px;
   color: #ffffff;
   font-size: 20px;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 1.4;
   text-transform: capitalize;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .inner p {
   color: #ffffff;
-  font-size: 12px;
-  line-height: 28px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .flip-card:hover .flip-card-front {
@@ -431,5 +482,130 @@ body {
 
 .flip-card:hover .flip-card-back {
   transform: rotateY(0deg);
+}
 
+/* Additional Responsive Styles */
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  .content {
+    height: 50vh;
+    min-height: 300px;
+  }
+
+  .featured-section {
+    padding: 40px 15px;
+  }
+
+  .featured-title {
+    margin-bottom: 40px;
+  }
+
+  .featured-cards {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 15px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    min-height: 450px;
+  }
+
+  .flip-card-front .inner,
+  .flip-card-back .inner {
+    padding: 25px 15px;
+  }
+
+  .space1 {
+    height: 120px;
+  }
+
+  .inner .icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+
+  .inner h3 {
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 10px 0 8px;
+  }
+
+  .inner p {
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 0 5px;
+  }
+
+  #popup {
+    padding: 20px 15px;
+  }
+
+  .align-text {
+    font-size: 24px;
+  }
+
+  .subscribe-btn {
+    width: 45px;
+    height: 45px;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .bell {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    min-height: 420px;
+  }
+
+  .flip-card-front .inner,
+  .flip-card-back .inner {
+    padding: 20px 12px;
+  }
+
+  .space1 {
+    height: 100px;
+  }
+
+  .inner .icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .inner h3 {
+    font-size: 16px;
+    margin: 8px 0 6px;
+  }
+
+  .inner p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .featured-cards {
+    grid-template-columns: repeat(3, 380px);
+  }
 }
