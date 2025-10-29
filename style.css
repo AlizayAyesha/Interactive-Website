@@ -25,10 +25,10 @@ body {
   margin: 0 auto; /* Center the elements horizontally */
 }
 
-/* Additional styling for the image */
-.newsletter {
+/* Additional styling for the image inside popup */
+#popup img.newsletter {
   display: block; /* Ensures the image is displayed as a block element */
-  max-width: 100%; /* Optional: Ensure the image does not exceed container width */
+  max-width: 100%; /* Ensure the image does not exceed container width */
   height: auto; /* Maintain aspect ratio */
 }
 
@@ -78,6 +78,10 @@ body {
   z-index: 1000;
   display: none;
   overflow-y: auto;
+  display: none;
+  /* Center and stack popup content */
+  display: none;
+  /* Flex when active */
 }
 #popup.active {
   display: block; /* Show popup when active class is added */
@@ -91,17 +95,17 @@ body {
   -webkit-filter: blur(5px); /* For older versions of Safari */
 }
 
-#popup .content{
-  position: relative;
-  width: 80%;
-  display: flex;
+/* Use flexbox on the popup container to center its inner content */
+#popup.active {
+  display: flex; /* Show and layout content when active */
+  visibility: visible;
+  opacity: 1;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-
 }
 
-#popup .content img {
+#popup img {
   max-width: 150px;
 }
 
@@ -111,16 +115,15 @@ body {
   font-size: 30px;
 }
 
-#popup .content .align-text{
- margin: 30px 0 10px;
- color:#000;
- font-size: 240px;
- font-weight: 700;
+#popup .align-text{
+  margin: 20px 0 10px;
+  color:#000;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
 }
 
-#popup .content{
-  width: 40%;
-}
+/* Make inner elements naturally fill available width */
 
 .input-field{
   position: relative;
@@ -609,3 +612,4 @@ body {
     grid-template-columns: repeat(3, 380px);
   }
 }
+
