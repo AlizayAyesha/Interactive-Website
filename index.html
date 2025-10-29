@@ -56,8 +56,52 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="#" class="btn">Login</a></li>
+        <li><a href="login.html" class="btn" id="login">Login</a></li>
+        <!--li><a href="index.html" class="btn" id="logout">Logout</a></li-->
+        <li><a href="#" class="btn" id="logout">Logout</a></li>
       </ul>
+<script>
+  // Unified auth script: use 'loggedIn' key and expose login/logout functions for onclick handlers.
+  function isLogged() {
+    return localStorage.getItem('loggedIn') === 'true';
+  }
+
+  const loginBtn = document.getElementById('login');
+  const logoutBtn = document.getElementById('logout');
+
+  function updateAuthButtons() {
+    if (loginBtn) loginBtn.style.display = isLogged() ? 'none' : 'inline-block';
+    if (logoutBtn) logoutBtn.style.display = isLogged() ? 'inline-block' : 'none';
+  }
+
+  // functions used by inline onclick attributes
+  function login() {
+    localStorage.setItem('loggedIn', 'true');
+    updateAuthButtons();
+  }
+
+  function logout(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    localStorage.removeItem('loggedIn');
+    updateAuthButtons();
+    // optionally redirect to login page after logout
+    window.location.href = 'login.html';
+  }
+
+  // attach event listeners if elements exist
+  if (loginBtn) {
+    loginBtn.addEventListener('click', function () {
+      // allow navigation if login is a link to login.html; still set state
+      localStorage.setItem('loggedIn', 'true');
+    });
+  }
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', logout);
+  }
+
+  // Run this when page loads
+  document.addEventListener('DOMContentLoaded', updateAuthButtons);
+</script>
     </div>
   </nav>
 
@@ -150,7 +194,7 @@
           <div class="space1"></div>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn50B2PR1mgxWAfuCcnMeFY-InyTvSxyn85g&s"
             class="icon" />
-          <h3>Morana Vitalio</h3A>
+          <h3>Morana Vitalio</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
               voluptatum eius quam debitis, sit amet sunt neque ipsum?
@@ -160,14 +204,17 @@
       </div>
     </section>
   </main>
-  
-</body>
-<!-- jQuery CDN Link -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Custom JavaScript -->
-<script src="main.js"></script>
-
-</html>
+  <div style="padding: 20px; margin: 20px; border: 1px solid black; background: #fff; text-align: center;">
+  <h3 style="color: #333;">Shubham's Fictional Book Entry</h3>
+  <p style="color: #555;">Book: The Lord of the Rings</p>
+  <p style="color: #555;">Name: shubhamyadav2809</p>
+  </div>
+  <!-- jQuery CDN Link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Custom JavaScript -->
+  <script src="main.js"></script>
+  </body>
+  </html>
 
