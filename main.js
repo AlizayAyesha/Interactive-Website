@@ -1,23 +1,56 @@
-$(document).ready(function() {
-  // Menu toggle logic
-  $(".menu-toggle").on("click", function() {
-    $(this).toggleClass("menu-open"); // Toggle menu-open class on menu-toggle
-    $(".navbar-list").toggleClass("active"); // Toggle active class on navbar-list to show/hide menu
+$(document).ready(function () {
+
+  // ===== Menu Toggle Logic =====
+  $(".menu-toggle").on("click", function () {
+    $(this).toggleClass("menu-open");
+    $(".navbar-list").toggleClass("active");
   });
 
-  $(".link").on("click", function() {
-    $(".link").removeClass("active"); // Remove active class from all links
-    $(this).addClass("active"); // Add active class to the clicked link
-    $(".navbar-list").removeClass("active"); // Hide navbar-list after clicking a link (optional)
-    $(".menu-toggle").removeClass("menu-open"); // Reset menu toggle button to hamburger icon
+  // ===== Navbar Active Link Logic =====
+  $(".link").on("click", function () {
+    $(".link").removeClass("active");
+    $(this).addClass("active");
+    $(".navbar-list").removeClass("active");
+    $(".menu-toggle").removeClass("menu-open");
   });
-  
-  $(document).ready(function() {
-  $('.subscribe-btn').on("click", function(){
+
+  // ===== Popup Open/Close =====
+  $(".subscribe-btn").on("click", function () {
     $("#popup").addClass("active");
-  })
-  $(".close").on("click", function (){
+  });
+
+  $(".close").on("click", function () {
     $("#popup").removeClass("active");
-  })
-})
-})
+  });
+
+  // ===== File Upload + Email Validation =====
+  $("#upload-form").on("submit", function (e) {
+    e.preventDefault(); // prevent page reload
+
+    const email = $("#email").val().trim();
+    const file = $("#fileUpload")[0].files[0];
+
+    // Validate email format
+    if (!validateEmail(email)) {
+      alert("❌ Please enter a valid email address.");
+      return;
+    }
+
+    // Ensure a file is uploaded
+    if (!file) {
+      alert("❌ Please upload a file before submitting.");
+      return;
+    }
+
+    // Success message
+    alert(`✅ File '${file.name}' uploaded successfully for ${email}.`);
+    $("#popup").removeClass("active");
+    this.reset(); // Clear input fields
+  });
+
+  // ===== Email Validation Helper Function =====
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+});
