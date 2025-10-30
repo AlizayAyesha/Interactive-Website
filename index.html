@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Website</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    html { scroll-behavior: smooth; } /* enables smooth scroll */
-  </style>
 </head>
 <body>
 
@@ -16,18 +12,18 @@
   <nav class="navbar">
     <div class="container">
       <a href="#home"><img src="logo.png" alt="Logo" class="logo"></a>
-      <div class="menu-toggle">
+      <div class="menu-toggle" id="menuToggle">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
-      <ul class="navbar-list">
+      <ul class="navbar-list" id="navbarList">
         <li><a href="#home" class="link active">Home</a></li>
         <li><a href="#about" class="link">About</a></li>
         <li><a href="#services" class="link">Services</a></li>
         <li><a href="#contact" class="link">Contact</a></li>
         <li><a href="./signin.html" class="btn" id="login">Sign In</a></li>
-        <li><a href="#" class="btn" id="logout" style="display: none;" onclick="logout(event)">Logout</a></li>
+        <li><a href="#" class="btn" id="logout" style="display:none;">Logout</a></li>
       </ul>
     </div>
   </nav>
@@ -104,23 +100,35 @@
     <p>Phone: +91 9876543210</p>
   </section>
 
+  <!-- 💬 Feedback Section -->
+  <section id="feedback" class="featured-section">
+    <h2 class="featured-title">Feedback</h2>
+    <p>We’d love to hear your thoughts! Leave a comment below.</p>
+
+    <form id="feedbackForm" class="feedback-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <textarea id="comment" name="comment" rows="4" placeholder="Your Feedback..." required></textarea>
+      <button type="submit" class="submit-btn">Submit Feedback</button>
+    </form>
+
+    <div id="feedbackList" class="feedback-list"></div>
+  </section>
+
   <!-- Popup -->
   <div id="popup">
     <img src="newsletter.png" class="newsletter" alt="Subscribe">
-    <span class="close"><img src="close.png" class="close-icon" alt="Close"></span>
+    <span class="close" id="closePopup"><img src="close.png" class="close-icon" alt="Close"></span>
     <h2 class="align-text">Subscribe to Upload Template</h2>
 
     <form id="uploadForm" class="input-field">
       <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
       <label for="fileUpload" style="font-weight:600;">Upload your template:</label>
       <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.zip,.docx,.png,.jpg" required>
-
       <button type="submit" class="submit-btn">Submit</button>
     </form>
   </div>
 
-  <div class="subscribe-btn">
+  <div class="subscribe-btn" id="openPopup">
     <img src="bell.png" alt="Subscribe" class="bell">
   </div>
 
@@ -146,45 +154,6 @@
   </footer>
 
   <!-- JS -->
-  <script>
-    $(document).ready(function () {
-      // Navbar toggle
-      $(".menu-toggle").on("click", function () {
-        $(this).toggleClass("menu-open");
-        $(".navbar-list").toggleClass("active");
-      });
-
-      $(".link").on("click", function () {
-        $(".link").removeClass("active");
-        $(this).addClass("active");
-        $(".navbar-list").removeClass("active");
-        $(".menu-toggle").removeClass("menu-open");
-      });
-
-      // Popup open/close
-      $('.subscribe-btn').on("click", function () {
-        $("#popup").addClass("active");
-      });
-
-      $(".close").on("click", function () {
-        $("#popup").removeClass("active");
-      });
-
-      // File upload form
-      $("#uploadForm").on("submit", function (e) {
-        e.preventDefault();
-        const email = $("#email").val();
-        const file = $("#fileUpload")[0].files[0];
-        if (!email || !file) {
-          alert("Please provide both email and file!");
-          return;
-        }
-        alert("Template uploaded successfully by " + email + "!");
-        $("#popup").removeClass("active");
-        this.reset();
-      });
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>

@@ -749,3 +749,36 @@ body {
   background-color: #8a0ec0;
   transform: scale(1.05);
 }
+
+/* Feedback Section */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.feedback-list {
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.feedback-item {
+  background: #f9f9f9;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-left: 4px solid #ffeb3b;
+  border-radius: 6px;
+}
+
