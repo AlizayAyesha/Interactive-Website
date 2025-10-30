@@ -1,4 +1,4 @@
-// Navbar toggle for mobile view
+// Navbar toggle
 const menuToggle = document.getElementById("menuToggle");
 const navbarList = document.getElementById("navbarList");
 
@@ -7,7 +7,7 @@ menuToggle.addEventListener("click", () => {
   navbarList.classList.toggle("active");
 });
 
-// Smooth scrolling for navbar links
+// Smooth scrolling
 document.querySelectorAll('.navbar-list a').forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
@@ -23,40 +23,22 @@ document.querySelectorAll('.navbar-list a').forEach(link => {
   });
 });
 
-// Newsletter popup
+// Popup logic
 const popup = document.getElementById("popup");
 const openPopup = document.getElementById("openPopup");
 const closePopup = document.getElementById("closePopup");
 
-openPopup.addEventListener("click", () => {
-  popup.classList.add("active");
-  document.body.classList.add("blur");
-});
+openPopup.addEventListener("click", () => popup.classList.add("active"));
+closePopup.addEventListener("click", () => popup.classList.remove("active"));
 
-closePopup.addEventListener("click", () => {
-  popup.classList.remove("active");
-  document.body.classList.remove("blur");
-});
-
-// Upload Form
+// Upload form
 document.getElementById("uploadForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const email = document.getElementById("email").value;
   const file = document.getElementById("fileUpload").files[0];
-  if (!file) {
-    alert("Please select a file.");
-    return;
-  }
+  if (!file) return alert("Please select a file.");
   alert(`Thanks ${email}! Your template "${file.name}" has been uploaded.`);
   popup.classList.remove("active");
-  document.body.classList.remove("blur");
-  e.target.reset();
-});
-
-// Book suggestion
-document.getElementById("suggestion-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  alert("Thank you for your suggestion!");
   e.target.reset();
 });
 
