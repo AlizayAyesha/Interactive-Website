@@ -2,22 +2,32 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
-
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: rgba(125, 16, 16, 0.922);
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  background: #f7f7fa; /* neutral light background */
   overflow-x: hidden;
   overflow-y: auto;
 }
 
+/* Design tokens */
+:root {
+  --bg: #f7f7fa;
+  --surface: #ffffff;
+  --muted: #6b7280;
+  --text: #0f172a;
+  --accent: #f59e0b; /* amber */
+  --accent-600: #d97706;
+  --radius: 10px;
+}
+
 /*popup*/
 
-.newsletter{
+.newsletter {
   margin-bottom: 0px;
   display: flex; /* Use flexbox to center align-items */
   justify-content: center; /* Center items horizontally */
@@ -44,17 +54,20 @@ body {
 }
 
 .subscribe-btn {
-  width: 50px;
-  height: 50px;
-  background-color: #fff;
-  border-radius: 5px;
+  width: 52px;
+  height: 52px;
+  background-color: var(--surface);
+  border-radius: 10px;
   position: absolute;
   right: 25px;
   bottom: 25px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: none;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
 .subscribe-btn .img {
@@ -63,17 +76,17 @@ body {
 
 #popup {
   width: 90%;
-  max-width: 500px;
+  max-width: 540px;
   height: auto;
   max-height: 90vh;
-  padding: 30px 20px;
-  background-color: #fff;
+  padding: 28px 22px;
+  background-color: var(--surface);
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  border-radius: var(--radius);
   transition: all 0.4s;
   z-index: 1000;
   display: none;
@@ -109,15 +122,15 @@ body {
   max-width: 150px;
 }
 
-.align-text{
+.align-text {
   text-align: center;
   font-weight: 1000;
   font-size: 30px;
 }
 
-#popup .align-text{
+#popup .align-text {
   margin: 20px 0 10px;
-  color:#000;
+  color: #000;
   font-size: 28px;
   font-weight: 700;
   text-align: center;
@@ -125,7 +138,7 @@ body {
 
 /* Make inner elements naturally fill available width */
 
-.input-field{
+.input-field {
   position: relative;
   width: 100%;
   margin-top: 20px;
@@ -144,35 +157,48 @@ body {
   outline: none;
 }
 
-
-.input-field .submit-btn{
+.input-field .submit-btn {
   width: 100%;
-  padding: 15px 20px;
-  color: #000000;
-  background-color: rgb(232, 232, 13);
+  padding: 14px 18px;
+  color: #fff;
+  background-color: var(--accent);
   font-size: 15px;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 8px;
   border: none;
   outline: none;
-  transition: all 0.3s;
+  transition: transform 0.12s ease, background-color 0.12s ease;
   cursor: pointer;
 }
-.input-field .submit-btn:hover{
-  background-color:#a8a1a1 ;
+.input-field .submit-btn:hover {
+  background-color: var(--accent-600);
+  transform: translateY(-2px);
 }
 
-#popup .close{
+#popup .close {
   position: absolute;
-  top: 5px;
+  top: 8px;
   right: 10px;
   cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background-color 0.12s ease;
 }
 .close .close-icon {
-  width: 20px; /* Adjust close icon size */
-  height: auto; /* Maintain aspect ratio */
+  width: 18px; /* Adjust close icon size */
+  height: 18px; /* Maintain aspect ratio */
+  display: block;
+}
+
+/* SVG icon inside service cards */
+.inner .icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 15px;
 }
 
 /*navbar*/
@@ -180,15 +206,15 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  color: #000;
-  background-color: azure;
-  padding: 15px 20px;
+  color: var(--text);
+  background-color: var(--surface);
+  padding: 14px 20px;
   z-index: 999;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  width: 60px;
+  width: 56px;
   height: auto;
 }
 
@@ -215,7 +241,7 @@ body {
 
 .navbar .navbar-list li a {
   display: block;
-  color: #000;
+  color: var(--text);
   padding: 10px 15px;
   text-align: center;
   text-decoration: none;
@@ -230,22 +256,22 @@ body {
 }
 
 .navbar .btn {
-  padding: 10px 25px;
-  color: #000000;
-  background-color: yellow;
+  padding: 10px 18px;
+  color: #fff;
+  background-color: var(--accent);
   font-family: inherit;
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s;
-  border-radius: 5px;
+  box-shadow: 0 6px 18px rgba(21, 24, 30, 0.06);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  border-radius: 8px;
 }
 
 .navbar .btn:hover {
-  background-color: #fded36;
+  background-color: var(--accent-600);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(21, 24, 30, 0.08);
 }
 
 .menu-toggle {
@@ -254,7 +280,6 @@ body {
   cursor: pointer;
   z-index: 1001;
 }
-
 
 .menu-toggle .bar {
   width: 28px;
@@ -338,7 +363,70 @@ body {
   overflow: hidden;
 }
 
-.space{
+/* Hero overlay */
+.hero {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* allow clicks to go to buttons only */
+}
+.hero-inner {
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.02);
+  max-width: 980px;
+  padding: 24px;
+  color: var(--surface);
+  text-align: center;
+}
+.hero-title {
+  color: #ffffff;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-shadow: 0 6px 24px rgba(2, 6, 23, 0.6);
+}
+.hero-sub {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.hero-ctas .btn {
+  margin: 0 8px;
+}
+.btn.ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+/* Focus outlines for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Subscribe button hover/focus */
+.subscribe-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+}
+.subscribe-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Close button hover */
+.close:hover {
+  background-color: rgba(11, 18, 32, 0.04);
+}
+
+.space {
   margin-top: 0;
 }
 
@@ -346,17 +434,21 @@ body {
 .featured-section {
   padding: 80px 20px;
   text-align: center;
-  background: linear-gradient(180deg, rgba(125, 16, 16, 0.922) 0%, rgba(80, 10, 10, 0.95) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.02) 0%,
+    rgba(15, 23, 42, 0.04) 100%
+  );
 }
 
 .featured-title {
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
   margin-bottom: 60px;
   text-transform: uppercase;
   letter-spacing: 3px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
 }
 
 .featured-cards {
@@ -382,7 +474,7 @@ body {
   width: 100%;
   min-height: 500px;
   height: auto;
-  background-color: #000000;
+  background-color: #0b1220;
   background-image: url(imgcard/card2.png);
   background-size: cover;
   background-position: center;
@@ -613,15 +705,14 @@ body {
   }
 }
 .footer {
-  width: calc(100vw + 50px);
-  background: #000;
-  color: #fff;
+  width: 100%;
+  background: #0b1220;
+  color: #e6e9ee;
   padding: 40px 20px 20px;
   box-sizing: border-box;
-  font-family: 'Times New Roman', serif;
-  border-top: 2px solid #fded36;
+  font-family: "Times New Roman", serif;
+  border-top: 2px solid var(--accent-600);
   position: relative;
-  left: -50px;
 }
 
 .footer-wrapper {
@@ -635,7 +726,6 @@ body {
 
 .footer-contact,
 .footer-social {
-
   justify-content: center;
 }
 
@@ -675,7 +765,6 @@ body {
   font-style: italic;
 }
 
-
 @media (max-width: 700px) {
   .footer-wrapper {
     flex-direction: column;
@@ -683,10 +772,7 @@ body {
     gap: 20px;
   }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 62a9fddbc7db06f9d13c097fd1f93455b035f316
 /* === Beetroot Book Suggestion Section === */
 #book-suggestions {
   background-color: #3b0a45 !important; /* deep beetroot background */
