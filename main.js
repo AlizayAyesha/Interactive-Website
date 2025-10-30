@@ -1,4 +1,4 @@
-// Navbar toggle for mobile view
+// -------------------- Navbar Toggle --------------------
 const menuToggle = document.getElementById("menuToggle");
 const navbarList = document.getElementById("navbarList");
 
@@ -7,15 +7,15 @@ menuToggle.addEventListener("click", () => {
   navbarList.classList.toggle("active");
 });
 
-// Smooth scrolling for navbar links
-document.querySelectorAll('.navbar-list a').forEach(link => {
-  link.addEventListener('click', function (e) {
+// -------------------- Smooth Scroll for Navbar Links --------------------
+document.querySelectorAll(".navbar-list a").forEach(link => {
+  link.addEventListener("click", function (e) {
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    const target = document.querySelector(this.getAttribute("href"));
     if (target) {
       window.scrollTo({
         top: target.offsetTop - 60,
-        behavior: 'smooth'
+        behavior: "smooth"
       });
     }
     navbarList.classList.remove("active");
@@ -23,7 +23,7 @@ document.querySelectorAll('.navbar-list a').forEach(link => {
   });
 });
 
-// Newsletter popup
+// -------------------- Newsletter Popup --------------------
 const popup = document.getElementById("popup");
 const openPopup = document.getElementById("openPopup");
 const closePopup = document.getElementById("closePopup");
@@ -38,62 +38,75 @@ closePopup.addEventListener("click", () => {
   document.body.classList.remove("blur");
 });
 
-// Upload Form (Template Upload)
+// -------------------- Template Upload Form --------------------
 document.getElementById("uploadForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  const email = document.getElementById("email").value;
+  const email = document.getElementById("email").value.trim();
   const file = document.getElementById("fileUpload").files[0];
+
   if (!file) {
-    alert("Please select a file.");
+    alert("⚠️ Please select a file before submitting.");
     return;
   }
-  alert(`Thanks ${email}! Your template "${file.name}" has been uploaded.`);
+
+  alert(`✅ Thanks ${email}! Your template "${file.name}" has been uploaded successfully.`);
   popup.classList.remove("active");
   document.body.classList.remove("blur");
   e.target.reset();
 });
 
-// Feedback Form
-document.getElementById("feedbackForm").addEventListener("submit", (e) => {
+// -------------------- Free PDF Books Upload --------------------
+document.getElementById("bookUploadForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const comment = document.getElementById("comment").value.trim();
-  if (!name || !comment) return;
 
-  const div = document.createElement("div");
-  div.classList.add("feedback-item");
-  div.innerHTML = `<strong>${name}:</strong><p>${comment}</p>`;
-  document.getElementById("feedbackList").appendChild(div);
+  const title = document.getElementById("bookTitle").value.trim();
+  const author = document.getElementById("bookAuthor").value.trim();
+  const file = document.getElementById("bookFile").files[0];
 
+  if (!title || !author || !file) {
+    alert("⚠️ Please fill out all fields and upload a PDF file.");
+    return;
+  }
+
+  const bookList = document.getElementById("bookList");
+
+  const bookCard = document.createElement("div");
+  bookCard.classList.add("book-card");
+  bookCard.innerHTML = `
+    <h4>${title}</h4>
+    <p>by ${author}</p>
+    <p class="filename">📘 ${file.name}</p>
+  `;
+
+  bookList.appendChild(bookCard);
+
+  alert(`✅ Book "${title}" by ${author} added successfully!`);
   e.target.reset();
 });
 
-// 📚 Free PDF Books Section
-const bookForm = document.getElementById('bookUploadForm');
-const bookList = document.getElementById('bookList');
+// -------------------- Feedback Form --------------------
+document.getElementById("feedbackForm").addEventListener("submit", (e) => {
+  e.preventDefault();
 
-if (bookForm) {
-  bookForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const comment = document.getElementById("comment").value.trim();
 
-    const title = document.getElementById('bookTitle').value.trim();
-    const author = document.getElementById('bookAuthor').value.trim();
-    const file = document.getElementById('bookFile').files[0];
+  if (!name || !comment) {
+    alert("⚠️ Please enter your name and feedback before submitting.");
+    return;
+  }
 
-    if (!file) {
-      alert('Please select a PDF file.');
-      return;
-    }
+  const feedbackList = document.getElementById("feedbackList");
 
-    const bookItem = document.createElement('div');
-    bookItem.classList.add('book-item');
-    bookItem.innerHTML = `
-      <h3>${title}</h3>
-      <p><strong>Author:</strong> ${author}</p>
-      <p><a href="${URL.createObjectURL(file)}" target="_blank">View PDF</a></p>
-    `;
+  const div = document.createElement("div");
+  div.classList.add("feedback-item");
+  div.innerHTML = `
+    <strong>${name}</strong>
+    <p>${comment}</p>
+  `;
 
-    bookList.appendChild(bookItem);
-    bookForm.reset();
-  });
-}
+  feedbackList.appendChild(div);
+
+  e.target.reset();
+  alert("✅ Thank you for your feedback!");
+});
