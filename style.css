@@ -683,4 +683,69 @@ body {
     gap: 20px;
   }
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 62a9fddbc7db06f9d13c097fd1f93455b035f316
+/* === Beetroot Book Suggestion Section === */
+#book-suggestions {
+  background-color: #3b0a45 !important; /* deep beetroot background */
+  color: #f9e6ff;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 5px solid #a020f0;
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+#book-suggestions h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #ffb3ff;
+}
+
+#book-suggestions p {
+  color: #f5d0ff;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+#suggestion-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#suggestion-form input,
+#suggestion-form textarea {
+  background-color: #4b145d;
+  color: #fff;
+  border: 1px solid #a855f7;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#suggestion-form input::placeholder,
+#suggestion-form textarea::placeholder {
+  color: #e5b8ff;
+}
+
+#suggestion-form button {
+  background-color: #a020f0;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#suggestion-form button:hover {
+  background-color: #8a0ec0;
+  transform: scale(1.05);
+}
