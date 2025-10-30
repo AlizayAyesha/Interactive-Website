@@ -38,7 +38,7 @@ closePopup.addEventListener("click", () => {
   document.body.classList.remove("blur");
 });
 
-// Upload Form
+// Upload Form (Template Upload)
 document.getElementById("uploadForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const email = document.getElementById("email").value;
@@ -53,7 +53,7 @@ document.getElementById("uploadForm").addEventListener("submit", (e) => {
   e.target.reset();
 });
 
-// Feedback form
+// Feedback Form
 document.getElementById("feedbackForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const name = document.getElementById("name").value.trim();
@@ -67,3 +67,33 @@ document.getElementById("feedbackForm").addEventListener("submit", (e) => {
 
   e.target.reset();
 });
+
+// 📚 Free PDF Books Section
+const bookForm = document.getElementById('bookUploadForm');
+const bookList = document.getElementById('bookList');
+
+if (bookForm) {
+  bookForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const title = document.getElementById('bookTitle').value.trim();
+    const author = document.getElementById('bookAuthor').value.trim();
+    const file = document.getElementById('bookFile').files[0];
+
+    if (!file) {
+      alert('Please select a PDF file.');
+      return;
+    }
+
+    const bookItem = document.createElement('div');
+    bookItem.classList.add('book-item');
+    bookItem.innerHTML = `
+      <h3>${title}</h3>
+      <p><strong>Author:</strong> ${author}</p>
+      <p><a href="${URL.createObjectURL(file)}" target="_blank">View PDF</a></p>
+    `;
+
+    bookList.appendChild(bookItem);
+    bookForm.reset();
+  });
+}

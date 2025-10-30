@@ -782,3 +782,32 @@ body {
   border-radius: 6px;
 }
 
+/* Free PDF Books Section */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.upload-form input[type="text"],
+.upload-form input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.book-list {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.book-item {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
