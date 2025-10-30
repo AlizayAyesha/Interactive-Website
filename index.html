@@ -25,6 +25,7 @@
         <li><a href="#home" class="link active">Home</a></li>
         <li><a href="#about" class="link">About</a></li>
         <li><a href="#services" class="link">Services</a></li>
+        <li><a href="#book-suggestions" class="link">Books</a></li>
         <li><a href="#contact" class="link">Contact</a></li>
         <li><a href="./signin.html" class="btn" id="login">Sign In</a></li>
         <li><a href="#" class="btn" id="logout" style="display: none;" onclick="logout(event)">Logout</a></li>
@@ -94,6 +95,25 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Book Suggestions Section -->
+  <section id="book-suggestions" class="featured-section">
+    <h2 class="featured-title">Book Suggestions</h2>
+    <p>Share your book recommendations with others nearby!</p>
+    
+    <form id="suggestion-form">
+      <input type="text" id="userName" placeholder="Your Name" required>
+      <input type="email" id="userEmail" placeholder="Your Email" required>
+      <input type="text" id="userLocation" placeholder="Your Location (City/Area)" required>
+      <textarea id="bookSuggestion" placeholder="Book suggestion and why you recommend it..." rows="4" required></textarea>
+      <button type="submit">Share Suggestion</button>
+    </form>
+
+    <div id="suggestions-list" style="margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+      <h3 style="color: #ffb3ff; margin-bottom: 20px;">Recent Suggestions</h3>
+      <div id="suggestions-container"></div>
     </div>
   </section>
 
@@ -183,6 +203,87 @@
         $("#popup").removeClass("active");
         this.reset();
       });
+
+      // Book suggestions form
+      loadSuggestions();
+
+      $("#suggestion-form").on("submit", function (e) {
+        e.preventDefault();
+        
+        const suggestion = {
+          name: $("#userName").val().trim(),
+          email: $("#userEmail").val().trim(),
+          location: $("#userLocation").val().trim(),
+          book: $("#bookSuggestion").val().trim(),
+          date: new Date().toLocaleDateString()
+        };
+
+        // Get existing suggestions from memory
+        let suggestions = [];
+        try {
+          const stored = localStorage.getItem('bookSuggestions');
+          if (stored) {
+            suggestions = JSON.parse(stored);
+          }
+        } catch (e) {
+          suggestions = [];
+        }
+        
+        suggestions.unshift(suggestion); // Add to beginning
+        
+        // Keep only last 20 suggestions
+        if (suggestions.length > 20) {
+          suggestions = suggestions.slice(0, 20);
+        }
+        
+        try {
+          localStorage.setItem('bookSuggestions', JSON.stringify(suggestions));
+        } catch (e) {
+          console.log('Storage not available, using session only');
+        }
+        
+        alert("Thank you! Your book suggestion has been shared.");
+        this.reset();
+        loadSuggestions();
+      });
+
+      function loadSuggestions() {
+        let suggestions = [];
+        try {
+          const stored = localStorage.getItem('bookSuggestions');
+          if (stored) {
+            suggestions = JSON.parse(stored);
+          }
+        } catch (e) {
+          suggestions = [];
+        }
+        
+        const container = $("#suggestions-container");
+        
+        if (suggestions.length === 0) {
+          container.html('<p style="color: #f5d0ff; font-style: italic;">No suggestions yet. Be the first to share!</p>');
+          return;
+        }
+        
+        let html = '';
+        suggestions.forEach(function(s) {
+          html += `
+            <div style="background-color: #4b145d; padding: 20px; margin-bottom: 15px; border-radius: 8px; border-left: 4px solid #a855f7; text-align: left;">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; flex-wrap: wrap;">
+                <div>
+                  <strong style="color: #ffb3ff; font-size: 1.1rem;">${s.name}</strong>
+                  <p style="color: #e5b8ff; margin: 5px 0; font-size: 0.9rem;">📍 ${s.location}</p>
+                </div>
+                <span style="color: #a855f7; font-size: 0.85rem;">${s.date}</span>
+              </div>
+              <p style="color: #f9e6ff; line-height: 1.6; margin: 10px 0;">${s.book}</p>
+              <a href="mailto:${s.email}" style="color: #a020f0; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-top: 8px; padding: 5px 12px; background-color: rgba(160, 32, 240, 0.2); border-radius: 4px;">📧 Contact</a>
+            </div>
+          `;
+        });
+        
+        container.html(html);
+      }
     });
   </script>
 

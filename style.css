@@ -2,9 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
-
 
 body {
   margin: 0;
@@ -19,20 +17,18 @@ body {
 
 .newsletter{
   margin-bottom: 0px;
-  display: flex; /* Use flexbox to center align-items */
-  justify-content: center; /* Center items horizontally */
+  display: flex;
+  justify-content: center;
   width: 170px;
-  margin: 0 auto; /* Center the elements horizontally */
+  margin: 0 auto;
 }
 
-/* Additional styling for the image inside popup */
 #popup img.newsletter {
-  display: block; /* Ensures the image is displayed as a block element */
-  max-width: 100%; /* Ensure the image does not exceed container width */
-  height: auto; /* Maintain aspect ratio */
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Styles for the close button */
 .close {
   width: 20px;
   height: auto;
@@ -78,26 +74,21 @@ body {
   z-index: 1000;
   display: none;
   overflow-y: auto;
-  display: none;
-  /* Center and stack popup content */
-  display: none;
-  /* Flex when active */
 }
+
 #popup.active {
-  display: block; /* Show popup when active class is added */
+  display: block;
   visibility: visible;
   opacity: 1;
 }
 
-/* Styles for the blur effect */
 .blur {
-  filter: blur(5px); /* Blur effect for the background */
-  -webkit-filter: blur(5px); /* For older versions of Safari */
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
 }
 
-/* Use flexbox on the popup container to center its inner content */
 #popup.active {
-  display: flex; /* Show and layout content when active */
+  display: flex;
   visibility: visible;
   opacity: 1;
   flex-direction: column;
@@ -123,8 +114,6 @@ body {
   text-align: center;
 }
 
-/* Make inner elements naturally fill available width */
-
 .input-field{
   position: relative;
   width: 100%;
@@ -144,7 +133,6 @@ body {
   outline: none;
 }
 
-
 .input-field .submit-btn{
   width: 100%;
   padding: 15px 20px;
@@ -160,6 +148,7 @@ body {
   transition: all 0.3s;
   cursor: pointer;
 }
+
 .input-field .submit-btn:hover{
   background-color:#a8a1a1 ;
 }
@@ -170,9 +159,10 @@ body {
   right: 10px;
   cursor: pointer;
 }
+
 .close .close-icon {
-  width: 20px; /* Adjust close icon size */
-  height: auto; /* Maintain aspect ratio */
+  width: 20px;
+  height: auto;
 }
 
 /*navbar*/
@@ -255,7 +245,6 @@ body {
   z-index: 1001;
 }
 
-
 .menu-toggle .bar {
   width: 28px;
   height: 3px;
@@ -327,7 +316,7 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  transition: transform 0.1s ease-out; /* Add transition for smooth movement */
+  transition: transform 0.1s ease-out;
 }
 
 .content {
@@ -612,6 +601,7 @@ body {
     grid-template-columns: repeat(3, 380px);
   }
 }
+
 .footer {
   width: calc(100vw + 50px);
   background: #000;
@@ -635,7 +625,6 @@ body {
 
 .footer-contact,
 .footer-social {
-
   justify-content: center;
 }
 
@@ -675,7 +664,6 @@ body {
   font-style: italic;
 }
 
-
 @media (max-width: 700px) {
   .footer-wrapper {
     flex-direction: column;
@@ -683,13 +671,10 @@ body {
     gap: 20px;
   }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 62a9fddbc7db06f9d13c097fd1f93455b035f316
-/* === Beetroot Book Suggestion Section === */
+/* === Book Suggestion Section === */
 #book-suggestions {
-  background-color: #3b0a45 !important; /* deep beetroot background */
+  background-color: #3b0a45 !important;
   color: #f9e6ff;
   padding: 60px 20px;
   text-align: center;
@@ -748,4 +733,40 @@ body {
 #suggestion-form button:hover {
   background-color: #8a0ec0;
   transform: scale(1.05);
+}
+
+#suggestions-list {
+  margin-top: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#suggestions-list h3 {
+  color: #ffb3ff;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* Responsive styles for book suggestions */
+@media (max-width: 768px) {
+  #book-suggestions {
+    padding: 40px 15px;
+  }
+
+  #book-suggestions h2 {
+    font-size: 1.5rem;
+  }
+
+  #book-suggestions p {
+    font-size: 1rem;
+  }
+
+  #suggestion-form {
+    max-width: 100%;
+  }
+
+  #suggestions-list {
+    padding: 0 10px;
+  }
 }
