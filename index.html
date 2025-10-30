@@ -30,12 +30,17 @@
         alt="newsletter" class="newsletter">
       <p class="align-text">Subscribe to get our newsletter</p>
     </div>
-    <form action="#">
-      <div class="input-field">
-        <input type="email" placeholder="Your email address" required>
-        <button class="submit-btn" type="submit">Subscribe</button>
-      </div>
-    </form>
+    <form id="upload-form" enctype="multipart/form-data">
+  <div class="input-field">
+    <input type="email" id="email" placeholder="Your email address" required>
+  </div>
+  <div class="input-field">
+    <label for="fileUpload" style="font-weight: 600;">Upload a file:</label>
+    <input type="file" id="fileUpload" accept=".pdf,.doc,.docx,.jpg,.png,.zip" required>
+  </div>
+  <button class="submit-btn" type="submit">Upload & Subscribe</button>
+  </form>
+
     <!-- Close button for the popup -->
     <a href="#" class="close">
       <img src="https://cdn-icons-png.flaticon.com/512/9068/9068678.png" alt="Close icon" class="close">
@@ -56,8 +61,9 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="./signin.html" class="btn">Sign In</a></li>
-        <li><a href="./signup.html" class="btn">Sign Up</a></li>
+        <li><a href="./signin.html" class="btn" id="login">Sign In</a></li>
+        <li><a href="#" class="btn" id="logout" style="display: none;" onclick="logout(event)">Logout</a></li>
+
       </ul>
 <script>
   // Unified auth script: use 'loggedIn' key and expose login/logout functions for onclick handlers.
