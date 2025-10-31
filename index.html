@@ -14,7 +14,7 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-      <a href="#home"><img src="logo.png" alt="Logo" class="logo" /></a>
+      <a href="#home"><img src="logo.png" alt="Logo" class="logo"></a>
       <div class="menu-toggle" id="menuToggle">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -41,94 +41,37 @@
   <!-- About Section -->
   <section id="about" class="featured-section">
     <h2 class="featured-title">About Us</h2>
-    <p>
-      Welcome to our website! We are dedicated to creating engaging and interactive experiences for our users.
-    </p>
-  </section>
+    <p>Welcome to our website! We are dedicated to creating engaging and interactive experiences for our users.</p>
 
-  <!-- Book Selling Templates Section -->
-  <section id="book-templates" class="book-templates-section">
-    <h2 class="book-templates-title">Featured Book Templates</h2>
-    <p class="book-templates-subtitle">Discover our premium collection of book selling templates designed to boost your sales</p>
-    
-    <div class="book-templates-grid">
-      <div class="book-template-card">
-        <div class="book-template-image">
-          <div class="book-cover fiction-cover">
-            <h3>Fiction</h3>
-            <div class="book-spine"></div>
-          </div>
+    <div class="about-content">
+      <p>
+        Our mission is to bring innovation and creativity to every digital solution we build. We specialize in 
+        <strong>web design, app development, and cloud deployment</strong>, helping businesses and individuals establish 
+        a strong online presence.
+      </p>
+      <p>
+        Our team consists of passionate developers, designers, and strategists who collaborate to turn ideas into 
+        impactful solutions. We focus on clean design, smooth user experiences, and reliable performance.
+      </p>
+      <p>
+        Whether you are a startup or an established brand, we aim to provide technology that drives growth, engagement, 
+        and success.
+      </p>
+
+      <div class="about-stats">
+        <div class="stat-box">
+          <h3>100+</h3>
+          <p>Projects Completed</p>
         </div>
-        <div class="book-template-content">
-          <h4>Fiction Template</h4>
-          <p>Perfect for novels, short stories, and creative writing. Includes author bio, synopsis, and review sections.</p>
-          <div class="template-features">
-            <span class="feature-tag">Responsive</span>
-            <span class="feature-tag">SEO Ready</span>
-          </div>
-          <button class="template-btn">Preview Template</button>
+        <div class="stat-box">
+          <h3>50+</h3>
+          <p>Satisfied Clients</p>
+        </div>
+        <div class="stat-box">
+          <h3>5+</h3>
+          <p>Years of Experience</p>
         </div>
       </div>
-
-      <div class="book-template-card">
-        <div class="book-template-image">
-          <div class="book-cover non-fiction-cover">
-            <h3>Non-Fiction</h3>
-            <div class="book-spine"></div>
-          </div>
-        </div>
-        <div class="book-template-content">
-          <h4>Non-Fiction Template</h4>
-          <p>Ideal for educational books, biographies, and self-help. Features testimonials and detailed content preview.</p>
-          <div class="template-features">
-            <span class="feature-tag">Analytics</span>
-            <span class="feature-tag">Social Share</span>
-          </div>
-          <button class="template-btn">Preview Template</button>
-        </div>
-      </div>
-
-      <div class="book-template-card">
-        <div class="book-template-image">
-          <div class="book-cover children-cover">
-            <h3>Children's</h3>
-            <div class="book-spine"></div>
-          </div>
-        </div>
-        <div class="book-template-content">
-          <h4>Children's Template</h4>
-          <p>Colorful and engaging design for children's books. Interactive elements and parent-friendly information.</p>
-          <div class="template-features">
-            <span class="feature-tag">Interactive</span>
-            <span class="feature-tag">Kid-Friendly</span>
-          </div>
-          <button class="template-btn">Preview Template</button>
-        </div>
-      </div>
-
-      <div class="book-template-card">
-        <div class="book-template-image">
-          <div class="book-cover cookbook-cover">
-            <h3>Cookbook</h3>
-            <div class="book-spine"></div>
-          </div>
-        </div>
-        <div class="book-template-content">
-          <h4>Cookbook Template</h4>
-          <p>Specialized for recipe books and culinary guides. Features ingredient lists, cooking tips, and photo galleries.</p>
-          <div class="template-features">
-            <span class="feature-tag">Recipe Cards</span>
-            <span class="feature-tag">Photo Gallery</span>
-          </div>
-          <button class="template-btn">Preview Template</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="template-cta">
-      <h3>Ready to Sell Your Book?</h3>
-      <p>Choose from our professionally designed templates and start selling today!</p>
-      <button class="cta-button">Get Started Now</button>
     </div>
   </section>
 
@@ -223,22 +166,36 @@
     <p>Phone: +91 9876543210</p>
   </section>
 
+  <!-- Feedback Section -->
+  <section id="feedback" class="featured-section">
+    <h2 class="featured-title">Feedback</h2>
+    <p>We’d love to hear your thoughts! Leave a comment below.</p>
+
+    <form id="feedbackForm" class="feedback-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <textarea id="comment" name="comment" rows="4" placeholder="Your Feedback..." required></textarea>
+      <button type="submit" class="submit-btn">Submit Feedback</button>
+    </form>
+
+    <div id="feedbackList" class="feedback-list"></div>
+  </section>
+
   <!-- Popup -->
   <div id="popup">
-    <img src="newsletter.png" class="newsletter" alt="Subscribe" />
-    <span class="close" id="closePopup"><img src="close.png" class="close-icon" alt="Close" /></span>
+    <img src="newsletter.png" class="newsletter" alt="Subscribe">
+    <span class="close" id="closePopup"><img src="close.png" class="close-icon" alt="Close"></span>
     <h2 class="align-text">Subscribe to Upload Template</h2>
 
     <form id="uploadForm" class="input-field">
-      <input type="email" id="email" name="email" placeholder="Enter your email" required />
-      <label for="fileUpload" style="font-weight: 600;">Upload your template:</label>
-      <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.zip,.docx,.png,.jpg" required />
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <label for="fileUpload" style="font-weight:600;">Upload your template:</label>
+      <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.zip,.docx,.png,.jpg" required>
       <button type="submit" class="submit-btn">Submit</button>
     </form>
   </div>
 
   <div class="subscribe-btn" id="openPopup">
-    <img src="bell.png" alt="Subscribe" class="bell" />
+    <img src="bell.png" alt="Subscribe" class="bell">
   </div>
 
   <!-- Footer -->
@@ -263,55 +220,6 @@
   </footer>
 
   <!-- JS -->
-  <script>
-    $(document).ready(function () {
-      // Navbar toggle
-      $(".menu-toggle").on("click", function () {
-        $(this).toggleClass("menu-open");
-        $(".navbar-list").toggleClass("active");
-      });
-
-      $(".link").on("click", function () {
-        $(".link").removeClass("active");
-        $(this).addClass("active");
-        $(".navbar-list").removeClass("active");
-        $(".menu-toggle").removeClass("menu-open");
-      });
-
-      // Popup open/close
-      $('.subscribe-btn').on("click", function () {
-        $("#popup").addClass("active");
-      });
-
-      $(".close").on("click", function () {
-        $("#popup").removeClass("active");
-      });
-
-      // File upload form
-      $("#uploadForm").on("submit", function (e) {
-        e.preventDefault();
-        const email = $("#email").val();
-        const file = $("#fileUpload")[0].files[0];
-        if (!email || !file) {
-          alert("Please provide both email and file!");
-          return;
-        }
-        alert("Template uploaded successfully by " + email + "!");
-        $("#popup").removeClass("active");
-        this.reset();
-      });
-
-      // Book template interactions
-      $(".template-btn").on("click", function () {
-        const templateType = $(this).closest('.book-template-card').find('h4').text();
-        alert(`Preview for ${templateType} will be available soon! Stay tuned for our template showcase.`);
-      });
-
-      $(".cta-button").on("click", function () {
-        alert("Welcome to our Book Template Store! Choose your perfect template and start selling your books today.");
-      });
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
