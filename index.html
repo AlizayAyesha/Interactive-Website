@@ -1,225 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Website</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="#home"><img src="logo.png" alt="Logo" class="logo"></a>
-      <div class="menu-toggle" id="menuToggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Website</title>
+    <meta
+      name="description"
+      content="Interactive Website — modern UI examples: services, signup, and templates upload."
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      } /* enables smooth scroll */
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="#home"><img src="logo.png" alt="Logo" class="logo" /></a>
+        <div class="menu-toggle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <ul class="navbar-list">
+          <li><a href="#home" class="link active">Home</a></li>
+          <li><a href="#about" class="link">About</a></li>
+          <li><a href="#services" class="link">Services</a></li>
+          <li><a href="#contact" class="link">Contact</a></li>
+          <li><a href="./signin.html" class="btn" id="login">Sign In</a></li>
+          <li>
+            <a
+              href="#"
+              class="btn"
+              id="logout"
+              style="display: none"
+              onclick="logout(event)"
+              >Logout</a
+            >
+          </li>
+        </ul>
       </div>
-      <ul class="navbar-list" id="navbarList">
-        <li><a href="#home" class="link active">Home</a></li>
-        <li><a href="#about" class="link">About</a></li>
-        <li><a href="#book-templates" class="link">Book Templates</a></li>
-        <li><a href="#services" class="link">Services</a></li>
-        <li><a href="#books" class="link">Free Books</a></li>
-        <li><a href="#contact" class="link">Contact</a></li>
-        <li><a href="./signin.html" class="btn" id="login">Sign In</a></li>
-        <li><a href="#" class="btn" id="logout" style="display:none;">Logout</a></li>
-      </ul>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="content">
-    <img src="bg.png" alt="Background" class="img" loading="lazy" />
-  </section>
+    <!-- Home Section -->
+    <section id="home" class="content">
+      <img src="bg.png" alt="Background" class="img" loading="lazy" />
+      <div class="hero">
+        <div class="hero-inner">
+          <h1 class="hero-title">Build beautiful experiences</h1>
+          <p class="hero-sub">
+            We design modern, responsive websites and apps that delight users.
+          </p>
+          <div class="hero-ctas">
+            <a href="./signin.html" class="btn primary">Get Started</a>
+            <a href="#services" class="btn ghost">Our Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="featured-section">
-    <h2 class="featured-title">About Us</h2>
-    <p>Welcome to our website! We are dedicated to creating engaging and interactive experiences for our users.</p>
-
-    <div class="about-content">
+    <!-- About Section -->
+    <section id="about" class="featured-section">
+      <h2 class="featured-title">About Us</h2>
       <p>
-        Our mission is to bring innovation and creativity to every digital solution we build. We specialize in 
-        <strong>web design, app development, and cloud deployment</strong>, helping businesses and individuals establish 
-        a strong online presence.
+        Welcome to our website! We are dedicated to creating engaging and
+        interactive experiences for our users.
       </p>
-      <p>
-        Our team consists of passionate developers, designers, and strategists who collaborate to turn ideas into 
-        impactful solutions. We focus on clean design, smooth user experiences, and reliable performance.
-      </p>
-      <p>
-        Whether you are a startup or an established brand, we aim to provide technology that drives growth, engagement, 
-        and success.
-      </p>
+    </section>
 
-      <div class="about-stats">
-        <div class="stat-box">
-          <h3>100+</h3>
-          <p>Projects Completed</p>
+    <!-- Services Section -->
+    <section id="services" class="featured-section">
+      <h2 class="featured-title">Our Services</h2>
+      <div class="featured-cards">
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <div class="inner">
+              <!-- Design palette SVG icon -->
+              <svg
+                class="icon"
+                role="img"
+                aria-label="Web design icon"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#fff"
+                  d="M12 2a10 10 0 100 20 10 10 0 000-20zm4.5 6.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                />
+              </svg>
+              <h3>Web Design</h3>
+              <p>Modern responsive designs for your business.</p>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="inner">
+              <h3>Web Design</h3>
+              <p>
+                We design visually appealing and responsive websites using the
+                latest technologies.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="stat-box">
-          <h3>50+</h3>
-          <p>Satisfied Clients</p>
+
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <div class="inner">
+              <!-- Mobile phone SVG icon -->
+              <svg
+                class="icon"
+                role="img"
+                aria-label="App development icon"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#fff"
+                  d="M7 2h10a1 1 0 011 1v18a1 1 0 01-1 1H7a1 1 0 01-1-1V3a1 1 0 011-1zm5 19a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                />
+              </svg>
+              <h3>App Development</h3>
+              <p>Custom mobile apps for Android and iOS platforms.</p>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="inner">
+              <h3>App Development</h3>
+              <p>
+                Build powerful and user-friendly applications tailored to your
+                needs.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="stat-box">
-          <h3>5+</h3>
-          <p>Years of Experience</p>
+
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <div class="inner">
+              <!-- Cloud SVG icon -->
+              <svg
+                class="icon"
+                role="img"
+                aria-label="Cloud deployment icon"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#fff"
+                  d="M19 18H6a4 4 0 010-8 5 5 0 0110 0 3 3 0 012.5 5z"
+                />
+              </svg>
+              <h3>Cloud Deployment</h3>
+              <p>Reliable cloud hosting and AWS integration.</p>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="inner">
+              <h3>Cloud Deployment</h3>
+              <p>
+                We deploy and manage your apps on secure cloud environments like
+                AWS.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="featured-section">
+      <h2 class="featured-title">Contact Us</h2>
+      <p>Email: contact@example.com</p>
+      <p>Phone: +91 9876543210</p>
+    </section>
+
+    <!-- Popup -->
+    <div
+      id="popup"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="popup-title"
+    >
+      <img src="newsletter.png" class="newsletter" alt="Subscribe" />
+      <button class="close" aria-label="Close popup">
+        <!-- Inline close (X) SVG -->
+        <svg
+          class="close-icon"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7A1 1 0 105.7 7.11L10.59 12l-4.9 4.89a1 1 0 101.41 1.41L12 13.41l4.89 4.9a1 1 0 001.41-1.41L13.41 12l4.9-4.89a1 1 0 000-1.4z"
+            fill="#0b1220"
+          />
+        </svg>
+      </button>
+      <h2 class="align-text">Subscribe to Upload Template</h2>
+
+      <form id="uploadForm" class="input-field">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="fileUpload" style="font-weight: 600"
+          >Upload your template:</label
+        >
+        <input
+          type="file"
+          id="fileUpload"
+          name="fileUpload"
+          accept=".pdf,.zip,.docx,.png,.jpg"
+          required
+        />
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
     </div>
-  </section>
 
-  <!-- Services Section -->
-  <section id="services" class="featured-section">
-    <h2 class="featured-title">Our Services</h2>
-    <div class="featured-cards">
-      <div class="flip-card">
-        <div class="flip-card-front">
-          <div class="inner">
-            <img src="service1.png" alt="Service" class="icon" />
-            <h3>Web Design</h3>
-            <p>Modern responsive designs for your business.</p>
-          </div>
-        </div>
-        <div class="flip-card-back">
-          <div class="inner">
-            <h3>Web Design</h3>
-            <p>We design visually appealing and responsive websites using the latest technologies.</p>
-          </div>
-        </div>
-      </div>
+    <button class="subscribe-btn" aria-label="Open subscribe dialog">
+      <!-- Inline bell SVG for consistent styling -->
+      <svg
+        class="bell"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path
+          d="M12 22c1.1046 0 2-.8954 2-2H10c0 1.1046.8954 2 2 2z"
+          fill="#0b1220"
+        />
+        <path
+          d="M18 16v-5c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 10-3 0v.68C7.64 5.36 6 7.92 6 11v5l-1.99 2H20l-2-2z"
+          fill="#f59e0b"
+        />
+      </svg>
+    </button>
 
-      <div class="flip-card">
-        <div class="flip-card-front">
-          <div class="inner">
-            <img src="service2.png" alt="Service" class="icon" />
-            <h3>App Development</h3>
-            <p>Custom mobile apps for Android and iOS platforms.</p>
-          </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <p>Email: info@example.com</p>
+          <p>Phone: +91 9876543210</p>
         </div>
-        <div class="flip-card-back">
-          <div class="inner">
-            <h3>App Development</h3>
-            <p>Build powerful and user-friendly applications tailored to your needs.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card">
-        <div class="flip-card-front">
-          <div class="inner">
-            <img src="service3.png" alt="Service" class="icon" />
-            <h3>Cloud Deployment</h3>
-            <p>Reliable cloud hosting and AWS integration.</p>
-          </div>
-        </div>
-        <div class="flip-card-back">
-          <div class="inner">
-            <h3>Cloud Deployment</h3>
-            <p>We deploy and manage your apps on secure cloud environments like AWS.</p>
-          </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <p><a href="#">Instagram</a></p>
+          <p><a href="#">Twitter</a></p>
+          <p><a href="#">LinkedIn</a></p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 📚 Free PDF Books Section -->
-  <section id="books" class="featured-section">
-    <h2 class="featured-title">Free PDF Books</h2>
-    <p>Upload and explore rare or hard-to-find books shared by the community.</p>
-
-    <form id="bookUploadForm" class="book-upload-form">
-      <input type="text" id="bookTitle" name="bookTitle" placeholder="Book Title" required />
-      <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Author Name" required />
-      <label for="bookFile" style="font-weight: 600;">Upload PDF File:</label>
-      <input type="file" id="bookFile" name="bookFile" accept=".pdf" required />
-      <button type="submit" class="submit-btn">Upload Book</button>
-    </form>
-
-    <div id="bookList" class="book-list"></div>
-  </section>
-
-  <!-- 💬 Feedback Section -->
-  <section id="feedback" class="featured-section">
-    <h2 class="featured-title">Feedback</h2>
-    <p>We’d love to hear your thoughts! Leave a comment below.</p>
-
-    <form id="feedbackForm" class="feedback-form">
-      <input type="text" id="name" name="name" placeholder="Your Name" required />
-      <textarea id="comment" name="comment" rows="4" placeholder="Your Feedback..." required></textarea>
-      <button type="submit" class="submit-btn">Submit Feedback</button>
-    </form>
-
-    <div id="feedbackList" class="feedback-list"></div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="featured-section">
-    <h2 class="featured-title">Contact Us</h2>
-    <p>Email: contact@example.com</p>
-    <p>Phone: +91 9876543210</p>
-  </section>
-
-  <!-- Feedback Section -->
-  <section id="feedback" class="featured-section">
-    <h2 class="featured-title">Feedback</h2>
-    <p>We’d love to hear your thoughts! Leave a comment below.</p>
-
-    <form id="feedbackForm" class="feedback-form">
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-      <textarea id="comment" name="comment" rows="4" placeholder="Your Feedback..." required></textarea>
-      <button type="submit" class="submit-btn">Submit Feedback</button>
-    </form>
-
-    <div id="feedbackList" class="feedback-list"></div>
-  </section>
-
-  <!-- Popup -->
-  <div id="popup">
-    <img src="newsletter.png" class="newsletter" alt="Subscribe">
-    <span class="close" id="closePopup"><img src="close.png" class="close-icon" alt="Close"></span>
-    <h2 class="align-text">Subscribe to Upload Template</h2>
-
-    <form id="uploadForm" class="input-field">
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      <label for="fileUpload" style="font-weight:600;">Upload your template:</label>
-      <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.zip,.docx,.png,.jpg" required>
-      <button type="submit" class="submit-btn">Submit</button>
-    </form>
-  </div>
-
-  <div class="subscribe-btn" id="openPopup">
-    <img src="bell.png" alt="Subscribe" class="bell">
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-wrapper">
-      <div class="footer-contact">
-        <h3>Contact</h3>
-        <p>Email: info@example.com</p>
-        <p>Phone: +91 9876543210</p>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Interactive Website. All rights reserved.</p>
+        <p class="footer-dev">Developed by Dwarakesh Gupta</p>
       </div>
-      <div class="footer-social">
-        <h3>Follow Us</h3>
-        <p><a href="#">Instagram</a></p>
-        <p><a href="#">Twitter</a></p>
-        <p><a href="#">LinkedIn</a></p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Interactive Website. All rights reserved.</p>
-      <p class="footer-dev">Developed by Dwarakesh Gupta</p>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- JS -->
-  <script src="script.js"></script>
-</body>
+    <!-- JS -->
+    <script>
+      $(document).ready(function () {
+        // Navbar toggle
+        $(".menu-toggle").on("click", function () {
+          $(this).toggleClass("menu-open");
+          $(".navbar-list").toggleClass("active");
+        });
+
+        $(".link").on("click", function () {
+          $(".link").removeClass("active");
+          $(this).addClass("active");
+          $(".navbar-list").removeClass("active");
+          $(".menu-toggle").removeClass("menu-open");
+        });
+
+        // Popup open/close with focus management
+        let lastFocus = null;
+
+        $(".subscribe-btn").on("click", function () {
+          lastFocus = document.activeElement;
+          $("#popup").addClass("active");
+          // focus first input inside popup
+          setTimeout(function () {
+            $("#email").focus();
+          }, 50);
+        });
+
+        $(".close").on("click", function () {
+          $("#popup").removeClass("active");
+          if (lastFocus) $(lastFocus).focus();
+        });
+
+        // Close popup with Escape key when active
+        $(document).on("keydown", function (e) {
+          if (e.key === "Escape" && $("#popup").hasClass("active")) {
+            $("#popup").removeClass("active");
+            if (lastFocus) $(lastFocus).focus();
+          }
+        });
+
+        // File upload form
+        $("#uploadForm").on("submit", function (e) {
+          e.preventDefault();
+          const email = $("#email").val();
+          const file = $("#fileUpload")[0].files[0];
+          if (!email || !file) {
+            alert("Please provide both email and file!");
+            return;
+          }
+          alert("Template uploaded successfully by " + email + "!");
+          $("#popup").removeClass("active");
+          this.reset();
+          if (lastFocus) $(lastFocus).focus();
+        });
+      });
+    </script>
+  </body>
 </html>
