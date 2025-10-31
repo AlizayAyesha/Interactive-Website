@@ -1,56 +1,58 @@
-$(document).ready(function () {
+// Navbar toggle
+const menuToggle = document.getElementById("menuToggle");
+const navbarList = document.getElementById("navbarList");
 
-  // ===== Menu Toggle Logic =====
-  $(".menu-toggle").on("click", function () {
-    $(this).toggleClass("menu-open");
-    $(".navbar-list").toggleClass("active");
-  });
+menuToggle.addEventListener("click", () => {
+  menuToggle.classList.toggle("menu-open");
+  navbarList.classList.toggle("active");
+});
 
-  // ===== Navbar Active Link Logic =====
-  $(".link").on("click", function () {
-    $(".link").removeClass("active");
-    $(this).addClass("active");
-    $(".navbar-list").removeClass("active");
-    $(".menu-toggle").removeClass("menu-open");
-  });
-
-  // ===== Popup Open/Close =====
-  $(".subscribe-btn").on("click", function () {
-    $("#popup").addClass("active");
-  });
-
-  $(".close").on("click", function () {
-    $("#popup").removeClass("active");
-  });
-
-  // ===== File Upload + Email Validation =====
-  $("#upload-form").on("submit", function (e) {
-    e.preventDefault(); // prevent page reload
-
-    const email = $("#email").val().trim();
-    const file = $("#fileUpload")[0].files[0];
-
-    // Validate email format
-    if (!validateEmail(email)) {
-      alert("❌ Please enter a valid email address.");
-      return;
+// Smooth scrolling
+document.querySelectorAll('.navbar-list a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 60,
+        behavior: 'smooth'
+      });
     }
-
-    // Ensure a file is uploaded
-    if (!file) {
-      alert("❌ Please upload a file before submitting.");
-      return;
-    }
-
-    // Success message
-    alert(`✅ File '${file.name}' uploaded successfully for ${email}.`);
-    $("#popup").removeClass("active");
-    this.reset(); // Clear input fields
+    navbarList.classList.remove("active");
+    menuToggle.classList.remove("menu-open");
   });
+});
 
-  // ===== Email Validation Helper Function =====
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
+// Popup logic
+const popup = document.getElementById("popup");
+const openPopup = document.getElementById("openPopup");
+const closePopup = document.getElementById("closePopup");
+
+openPopup.addEventListener("click", () => popup.classList.add("active"));
+closePopup.addEventListener("click", () => popup.classList.remove("active"));
+
+// Upload form
+document.getElementById("uploadForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+  const file = document.getElementById("fileUpload").files[0];
+  if (!file) return alert("Please select a file.");
+  alert(`Thanks ${email}! Your template "${file.name}" has been uploaded.`);
+  popup.classList.remove("active");
+  e.target.reset();
+});
+
+// Feedback form
+document.getElementById("feedbackForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const comment = document.getElementById("comment").value.trim();
+  if (!name || !comment) return;
+
+  const div = document.createElement("div");
+  div.classList.add("feedback-item");
+  div.innerHTML = `<strong>${name}:</strong><p>${comment}</p>`;
+  document.getElementById("feedbackList").appendChild(div);
+
+  e.target.reset();
 });
