@@ -238,3 +238,144 @@ body {
   font-size: 0.9rem;
   opacity: 0.8;
 }
+
+
+/* -------------------- */
+/* 🌐 Responsive Design */
+/* -------------------- */
+
+/* Tablet View (up to 1024px) */
+@media (max-width: 1024px) {
+  .navbar .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .featured-cards {
+    gap: 20px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .featured-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile View (up to 768px) */
+@media (max-width: 768px) {
+  .navbar-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    display: none; /* hide menu by default for mobile */
+  }
+
+  .navbar.active .navbar-list {
+    display: flex; /* show when active */
+  }
+
+  .navbar .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+
+  .featured-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flip-card {
+    width: 90%;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+  }
+
+  .feedback-form {
+    width: 90%;
+  }
+
+  .footer-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* Very Small Devices (up to 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+  }
+
+  .btn, .submit-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    padding: 20px;
+  }
+
+  .subscribe-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px;
+  }
+
+  .bell {
+    width: 25px;
+  }
+}
+
+/* --------------------------- */
+/* 🌟 Smooth transitions & UX */
+/* --------------------------- */
+a,
+button,
+input,
+textarea {
+  transition: all 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------- */
+/* 🌙 Optional Dark Mode Setup */
+/* --------------------------- */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111;
+    color: #ddd;
+  }
+
+  .navbar,
+  .footer {
+    background: #000;
+  }
+
+  .flip-card-front {
+    background: #222;
+    color: #fff;
+  }
+
+  .flip-card-back {
+    background: #f06;
+  }
+}
