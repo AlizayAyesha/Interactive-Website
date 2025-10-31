@@ -23,6 +23,7 @@
       <ul class="navbar-list" id="navbarList">
         <li><a href="#home" class="link active">Home</a></li>
         <li><a href="#about" class="link">About</a></li>
+        <li><a href="#book-templates" class="link">Book Templates</a></li>
         <li><a href="#services" class="link">Services</a></li>
         <li><a href="#books" class="link">Free Books</a></li>
         <li><a href="#contact" class="link">Contact</a></li>
@@ -43,6 +44,92 @@
     <p>
       Welcome to our website! We are dedicated to creating engaging and interactive experiences for our users.
     </p>
+  </section>
+
+  <!-- Book Selling Templates Section -->
+  <section id="book-templates" class="book-templates-section">
+    <h2 class="book-templates-title">Featured Book Templates</h2>
+    <p class="book-templates-subtitle">Discover our premium collection of book selling templates designed to boost your sales</p>
+    
+    <div class="book-templates-grid">
+      <div class="book-template-card">
+        <div class="book-template-image">
+          <div class="book-cover fiction-cover">
+            <h3>Fiction</h3>
+            <div class="book-spine"></div>
+          </div>
+        </div>
+        <div class="book-template-content">
+          <h4>Fiction Template</h4>
+          <p>Perfect for novels, short stories, and creative writing. Includes author bio, synopsis, and review sections.</p>
+          <div class="template-features">
+            <span class="feature-tag">Responsive</span>
+            <span class="feature-tag">SEO Ready</span>
+          </div>
+          <button class="template-btn">Preview Template</button>
+        </div>
+      </div>
+
+      <div class="book-template-card">
+        <div class="book-template-image">
+          <div class="book-cover non-fiction-cover">
+            <h3>Non-Fiction</h3>
+            <div class="book-spine"></div>
+          </div>
+        </div>
+        <div class="book-template-content">
+          <h4>Non-Fiction Template</h4>
+          <p>Ideal for educational books, biographies, and self-help. Features testimonials and detailed content preview.</p>
+          <div class="template-features">
+            <span class="feature-tag">Analytics</span>
+            <span class="feature-tag">Social Share</span>
+          </div>
+          <button class="template-btn">Preview Template</button>
+        </div>
+      </div>
+
+      <div class="book-template-card">
+        <div class="book-template-image">
+          <div class="book-cover children-cover">
+            <h3>Children's</h3>
+            <div class="book-spine"></div>
+          </div>
+        </div>
+        <div class="book-template-content">
+          <h4>Children's Template</h4>
+          <p>Colorful and engaging design for children's books. Interactive elements and parent-friendly information.</p>
+          <div class="template-features">
+            <span class="feature-tag">Interactive</span>
+            <span class="feature-tag">Kid-Friendly</span>
+          </div>
+          <button class="template-btn">Preview Template</button>
+        </div>
+      </div>
+
+      <div class="book-template-card">
+        <div class="book-template-image">
+          <div class="book-cover cookbook-cover">
+            <h3>Cookbook</h3>
+            <div class="book-spine"></div>
+          </div>
+        </div>
+        <div class="book-template-content">
+          <h4>Cookbook Template</h4>
+          <p>Specialized for recipe books and culinary guides. Features ingredient lists, cooking tips, and photo galleries.</p>
+          <div class="template-features">
+            <span class="feature-tag">Recipe Cards</span>
+            <span class="feature-tag">Photo Gallery</span>
+          </div>
+          <button class="template-btn">Preview Template</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="template-cta">
+      <h3>Ready to Sell Your Book?</h3>
+      <p>Choose from our professionally designed templates and start selling today!</p>
+      <button class="cta-button">Get Started Now</button>
+    </div>
   </section>
 
   <!-- Services Section -->
@@ -176,6 +263,55 @@
   </footer>
 
   <!-- JS -->
-  <script src="script.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Navbar toggle
+      $(".menu-toggle").on("click", function () {
+        $(this).toggleClass("menu-open");
+        $(".navbar-list").toggleClass("active");
+      });
+
+      $(".link").on("click", function () {
+        $(".link").removeClass("active");
+        $(this).addClass("active");
+        $(".navbar-list").removeClass("active");
+        $(".menu-toggle").removeClass("menu-open");
+      });
+
+      // Popup open/close
+      $('.subscribe-btn').on("click", function () {
+        $("#popup").addClass("active");
+      });
+
+      $(".close").on("click", function () {
+        $("#popup").removeClass("active");
+      });
+
+      // File upload form
+      $("#uploadForm").on("submit", function (e) {
+        e.preventDefault();
+        const email = $("#email").val();
+        const file = $("#fileUpload")[0].files[0];
+        if (!email || !file) {
+          alert("Please provide both email and file!");
+          return;
+        }
+        alert("Template uploaded successfully by " + email + "!");
+        $("#popup").removeClass("active");
+        this.reset();
+      });
+
+      // Book template interactions
+      $(".template-btn").on("click", function () {
+        const templateType = $(this).closest('.book-template-card').find('h4').text();
+        alert(`Preview for ${templateType} will be available soon! Stay tuned for our template showcase.`);
+      });
+
+      $(".cta-button").on("click", function () {
+        alert("Welcome to our Book Template Store! Choose your perfect template and start selling your books today.");
+      });
+    });
+  </script>
+
 </body>
 </html>
