@@ -1,164 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Website</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    html { scroll-behavior: smooth; } /* enables smooth scroll */
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Website</title>
+    <meta
+      name="description"
+      content="Interactive Website — modern UI examples: services, signup, and templates upload."
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="#home"><img src="logo.png" alt="Logo" class="logo"></a>
-      <div class="menu-toggle" id="menuToggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="#home"><img src="logo.png" alt="Logo" class="logo" /></a>
+        <div class="menu-toggle" id="menuToggle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <ul class="navbar-list" id="navbarList">
+          <li><a href="#home" class="link active">Home</a></li>
+          <li><a href="#about" class="link">About</a></li>
+          <li><a href="#services" class="link">Services</a></li>
+          <li><a href="#contact" class="link">Contact</a></li>
+          <li><a href="./signin.html" class="btn" id="login">Sign In</a></li>
+          <li>
+            <a
+              href="#"
+              class="btn"
+              id="logout"
+              style="display: none"
+              onclick="logout(event)"
+              >Logout</a
+            >
+          </li>
+        </ul>
       </div>
-      <ul class="navbar-list" id="navbarList">
-        <li><a href="#home" class="link active">Home</a></li>
-        <li><a href="#about" class="link">About</a></li>
-        <li><a href="#services" class="link">Services</a></li>
-        <li><a href="#contact" class="link">Contact</a></li>
-        <li><a href="./signin.html" class="btn" id="login">Sign In</a></li>
-        <li><a href="#" class="btn" id="logout" style="display:none;">Logout</a></li>
-      </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="content">
+      <img src="bg.png" alt="Background" class="img" loading="lazy" />
+      <div class="hero">
+        <div class="hero-inner">
+          <h1 class="hero-title">Build beautiful experiences</h1>
+          <p class="hero-sub">
+            We design modern, responsive websites and apps that delight users.
+          </p>
+          <div class="hero-ctas">
+            <a href="./signin.html" class="btn primary">Get Started</a>
+            <a href="#services" class="btn ghost">Our Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="featured-section">
+      <h2 class="featured-title">About Us</h2>
+      <p>
+        Welcome to our website! We are dedicated to creating engaging and
+        interactive experiences for our users.
+      </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="featured-section">
+      <h2 class="featured-title">Our Services</h2>
+      <div class="featured-cards">
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <div class="inner">
+              <img src="service1.png" alt="Service" class="icon" />
+              <h3>Web Design</h3>
+              <p>Modern responsive designs for your business.</p>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="inner">
+              <h3>Web Design</h3>
+              <p>
+                We design visually appealing and responsive websites using the
+                latest technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <div class="inner">
+              <h3>App Development</h3>
+              <p>Custom mobile apps for Android and iOS platforms.</p>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="inner">
+              <h3>App Development</h3>
+              <p>
+                Build powerful and user-friendly applications tailored to your
+                needs.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <div class="inner">
+              <h3>Cloud Deployment</h3>
+              <p>Reliable cloud hosting and AWS integration.</p>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="inner">
+              <h3>Cloud Deployment</h3>
+              <p>
+                We deploy and manage your apps on secure cloud environments like
+                AWS.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="featured-section">
+      <h2 class="featured-title">Contact Us</h2>
+      <p>Email: contact@example.com</p>
+      <p>Phone: +91 9876543210</p>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="featured-section">
+      <h2 class="featured-title">Feedback</h2>
+      <p>We’d love to hear your thoughts! Leave a comment below.</p>
+
+      <form id="feedbackForm" class="feedback-form">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+        <textarea
+          id="comment"
+          name="comment"
+          rows="4"
+          placeholder="Your Feedback..."
+          required
+        ></textarea>
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+      </form>
+
+      <div id="feedbackList" class="feedback-list"></div>
+    </section>
+
+    <!-- Popup -->
+    <div id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+      <img src="newsletter.png" class="newsletter" alt="Subscribe" />
+      <button class="close" aria-label="Close popup" id="closePopup">✖</button>
+      <h2 class="align-text">Subscribe to Upload Template</h2>
+
+      <form id="uploadForm" class="input-field">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+        <label for="fileUpload" style="font-weight: 600"
+          >Upload your template:</label
+        >
+        <input
+          type="file"
+          id="fileUpload"
+          name="fileUpload"
+          accept=".pdf,.zip,.docx,.png,.jpg"
+          required
+        />
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
     </div>
-  </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="content">
-    <img src="bg.png" alt="Background" class="img" loading="lazy">
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="featured-section">
-    <h2 class="featured-title">About Us</h2>
-    <p>Welcome to our website! We are dedicated to creating engaging and interactive experiences for our users.</p>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="featured-section">
-    <h2 class="featured-title">Our Services</h2>
-    <div class="featured-cards">
-      <div class="flip-card">
-        <div class="flip-card-front">
-          <div class="inner">
-            <img src="service1.png" alt="Service" class="icon">
-            <h3>Web Design</h3>
-            <p>Modern responsive designs for your business.</p>
-          </div>
-        </div>
-        <div class="flip-card-back">
-          <div class="inner">
-            <h3>Web Design</h3>
-            <p>We design visually appealing and responsive websites using the latest technologies.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card">
-        <div class="flip-card-front">
-          <div class="inner">
-            <img src="service2.png" alt="Service" class="icon">
-            <h3>App Development</h3>
-            <p>Custom mobile apps for Android and iOS platforms.</p>
-          </div>
-        </div>
-        <div class="flip-card-back">
-          <div class="inner">
-            <h3>App Development</h3>
-            <p>Build powerful and user-friendly applications tailored to your needs.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card">
-        <div class="flip-card-front">
-          <div class="inner">
-            <img src="service3.png" alt="Service" class="icon">
-            <h3>Cloud Deployment</h3>
-            <p>Reliable cloud hosting and AWS integration.</p>
-          </div>
-        </div>
-        <div class="flip-card-back">
-          <div class="inner">
-            <h3>Cloud Deployment</h3>
-            <p>We deploy and manage your apps on secure cloud environments like AWS.</p>
-          </div>
-        </div>
-      </div>
+    <!-- Floating Subscribe Button -->
+    <div class="subscribe-btn" id="openPopup">
+      <img src="bell.png" alt="Subscribe" class="bell" />
     </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="featured-section">
-    <h2 class="featured-title">Contact Us</h2>
-    <p>Email: contact@example.com</p>
-    <p>Phone: +91 9876543210</p>
-  </section>
-
-  <!-- 💬 Feedback Section -->
-  <section id="feedback" class="featured-section">
-    <h2 class="featured-title">Feedback</h2>
-    <p>We’d love to hear your thoughts! Leave a comment below.</p>
-
-    <form id="feedbackForm" class="feedback-form">
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-      <textarea id="comment" name="comment" rows="4" placeholder="Your Feedback..." required></textarea>
-      <button type="submit" class="submit-btn">Submit Feedback</button>
-    </form>
-
-    <div id="feedbackList" class="feedback-list"></div>
-  </section>
-
-  <!-- Popup -->
-  <div id="popup">
-    <img src="newsletter.png" class="newsletter" alt="Subscribe">
-    <span class="close" id="closePopup"><img src="close.png" class="close-icon" alt="Close"></span>
-    <h2 class="align-text">Subscribe to Upload Template</h2>
-
-    <form id="uploadForm" class="input-field">
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      <label for="fileUpload" style="font-weight:600;">Upload your template:</label>
-      <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.zip,.docx,.png,.jpg" required>
-      <button type="submit" class="submit-btn">Submit</button>
-    </form>
-  </div>
-
-  <div class="subscribe-btn" id="openPopup">
-    <img src="bell.png" alt="Subscribe" class="bell">
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-wrapper">
-      <div class="footer-contact">
-        <h3>Contact</h3>
-        <p>Email: info@example.com</p>
-        <p>Phone: +91 9876543210</p>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <p>Email: info@example.com</p>
+          <p>Phone: +91 9876543210</p>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <p><a href="#">Instagram</a></p>
+          <p><a href="#">Twitter</a></p>
+          <p><a href="#">LinkedIn</a></p>
+        </div>
       </div>
-      <div class="footer-social">
-        <h3>Follow Us</h3>
-        <p><a href="#">Instagram</a></p>
-        <p><a href="#">Twitter</a></p>
-        <p><a href="#">LinkedIn</a></p>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Interactive Website. All rights reserved.</p>
+        <p class="footer-dev">Developed by Dwarakesh Gupta</p>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Interactive Website. All rights reserved.</p>
-      <p class="footer-dev">Developed by Dwarakesh Gupta</p>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- JS -->
-  <script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-// Navbar toggle for mobile view
+// Navbar Toggle
 const menuToggle = document.getElementById("menuToggle");
 const navbarList = document.getElementById("navbarList");
 
@@ -7,15 +7,15 @@ menuToggle.addEventListener("click", () => {
   navbarList.classList.toggle("active");
 });
 
-// Smooth scrolling for navbar links
-document.querySelectorAll('.navbar-list a').forEach(link => {
-  link.addEventListener('click', function (e) {
+// Smooth Scroll
+document.querySelectorAll(".navbar-list a").forEach((link) => {
+  link.addEventListener("click", function (e) {
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    const target = document.querySelector(this.getAttribute("href"));
     if (target) {
       window.scrollTo({
         top: target.offsetTop - 60,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
     navbarList.classList.remove("active");
@@ -23,37 +23,26 @@ document.querySelectorAll('.navbar-list a').forEach(link => {
   });
 });
 
-// Newsletter popup
+// Popup Logic
 const popup = document.getElementById("popup");
 const openPopup = document.getElementById("openPopup");
 const closePopup = document.getElementById("closePopup");
 
-openPopup.addEventListener("click", () => {
-  popup.classList.add("active");
-  document.body.classList.add("blur");
-});
+openPopup.addEventListener("click", () => popup.classList.add("active"));
+closePopup.addEventListener("click", () => popup.classList.remove("active"));
 
-closePopup.addEventListener("click", () => {
-  popup.classList.remove("active");
-  document.body.classList.remove("blur");
-});
-
-// Upload Form
+// File Upload Form
 document.getElementById("uploadForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const email = document.getElementById("email").value;
   const file = document.getElementById("fileUpload").files[0];
-  if (!file) {
-    alert("Please select a file.");
-    return;
-  }
+  if (!file) return alert("Please select a file.");
   alert(`Thanks ${email}! Your template "${file.name}" has been uploaded.`);
   popup.classList.remove("active");
-  document.body.classList.remove("blur");
   e.target.reset();
 });
 
-// Feedback form
+// Feedback Form
 document.getElementById("feedbackForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const name = document.getElementById("name").value.trim();
