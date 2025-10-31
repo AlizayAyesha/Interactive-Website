@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Interactive Website</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
-    html { scroll-behavior: smooth; } /* enables smooth scroll */
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
-
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-      <a href="#home"><img src="logo.png" alt="Logo" class="logo"></a>
-      <div class="menu-toggle">
+      <a href="#home"><img src="logo.png" alt="Logo" class="logo" /></a>
+      <div class="menu-toggle" id="menuToggle">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
-      <ul class="navbar-list">
+      <ul class="navbar-list" id="navbarList">
         <li><a href="#home" class="link active">Home</a></li>
         <li><a href="#about" class="link">About</a></li>
         <li><a href="#book-templates" class="link">Book Templates</a></li>
         <li><a href="#services" class="link">Services</a></li>
+        <li><a href="#books" class="link">Free Books</a></li>
         <li><a href="#contact" class="link">Contact</a></li>
         <li><a href="./signin.html" class="btn" id="login">Sign In</a></li>
-        <li><a href="#" class="btn" id="logout" style="display: none;" onclick="logout(event)">Logout</a></li>
+        <li><a href="#" class="btn" id="logout" style="display:none;">Logout</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Home Section -->
   <section id="home" class="content">
-    <img src="bg.png" alt="Background" class="img" loading="lazy">
+    <img src="bg.png" alt="Background" class="img" loading="lazy" />
   </section>
 
   <!-- About Section -->
   <section id="about" class="featured-section">
     <h2 class="featured-title">About Us</h2>
-    <p>Welcome to our website! We are dedicated to creating engaging and interactive experiences for our users.</p>
+    <p>
+      Welcome to our website! We are dedicated to creating engaging and interactive experiences for our users.
+    </p>
   </section>
 
   <!-- Book Selling Templates Section -->
@@ -137,7 +139,7 @@
       <div class="flip-card">
         <div class="flip-card-front">
           <div class="inner">
-            <img src="service1.png" alt="Service" class="icon">
+            <img src="service1.png" alt="Service" class="icon" />
             <h3>Web Design</h3>
             <p>Modern responsive designs for your business.</p>
           </div>
@@ -153,7 +155,7 @@
       <div class="flip-card">
         <div class="flip-card-front">
           <div class="inner">
-            <img src="service2.png" alt="Service" class="icon">
+            <img src="service2.png" alt="Service" class="icon" />
             <h3>App Development</h3>
             <p>Custom mobile apps for Android and iOS platforms.</p>
           </div>
@@ -169,7 +171,7 @@
       <div class="flip-card">
         <div class="flip-card-front">
           <div class="inner">
-            <img src="service3.png" alt="Service" class="icon">
+            <img src="service3.png" alt="Service" class="icon" />
             <h3>Cloud Deployment</h3>
             <p>Reliable cloud hosting and AWS integration.</p>
           </div>
@@ -184,6 +186,36 @@
     </div>
   </section>
 
+  <!-- 📚 Free PDF Books Section -->
+  <section id="books" class="featured-section">
+    <h2 class="featured-title">Free PDF Books</h2>
+    <p>Upload and explore rare or hard-to-find books shared by the community.</p>
+
+    <form id="bookUploadForm" class="book-upload-form">
+      <input type="text" id="bookTitle" name="bookTitle" placeholder="Book Title" required />
+      <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Author Name" required />
+      <label for="bookFile" style="font-weight: 600;">Upload PDF File:</label>
+      <input type="file" id="bookFile" name="bookFile" accept=".pdf" required />
+      <button type="submit" class="submit-btn">Upload Book</button>
+    </form>
+
+    <div id="bookList" class="book-list"></div>
+  </section>
+
+  <!-- 💬 Feedback Section -->
+  <section id="feedback" class="featured-section">
+    <h2 class="featured-title">Feedback</h2>
+    <p>We’d love to hear your thoughts! Leave a comment below.</p>
+
+    <form id="feedbackForm" class="feedback-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+      <textarea id="comment" name="comment" rows="4" placeholder="Your Feedback..." required></textarea>
+      <button type="submit" class="submit-btn">Submit Feedback</button>
+    </form>
+
+    <div id="feedbackList" class="feedback-list"></div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="featured-section">
     <h2 class="featured-title">Contact Us</h2>
@@ -193,22 +225,20 @@
 
   <!-- Popup -->
   <div id="popup">
-    <img src="newsletter.png" class="newsletter" alt="Subscribe">
-    <span class="close"><img src="close.png" class="close-icon" alt="Close"></span>
+    <img src="newsletter.png" class="newsletter" alt="Subscribe" />
+    <span class="close" id="closePopup"><img src="close.png" class="close-icon" alt="Close" /></span>
     <h2 class="align-text">Subscribe to Upload Template</h2>
 
     <form id="uploadForm" class="input-field">
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-      <label for="fileUpload" style="font-weight:600;">Upload your template:</label>
-      <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.zip,.docx,.png,.jpg" required>
-
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      <label for="fileUpload" style="font-weight: 600;">Upload your template:</label>
+      <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.zip,.docx,.png,.jpg" required />
       <button type="submit" class="submit-btn">Submit</button>
     </form>
   </div>
 
-  <div class="subscribe-btn">
-    <img src="bell.png" alt="Subscribe" class="bell">
+  <div class="subscribe-btn" id="openPopup">
+    <img src="bell.png" alt="Subscribe" class="bell" />
   </div>
 
   <!-- Footer -->
