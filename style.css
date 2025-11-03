@@ -11,10 +11,130 @@ body {
   background-attachment: fixed;
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-.navbar {
+/* -------------------- */
+/* ✉️ Popup / Newsletter */
+/* -------------------- */
+
+.newsletter {
+  display: flex;
+  justify-content: center;
+  width: 170px;
+  margin: 0 auto;
+}
+
+#popup img.newsletter {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.close {
+  width: 20px;
+  height: auto;
+}
+
+.bell {
+  width: 50px;
+  height: auto;
+}
+
+.subscribe-btn {
   position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.subscribe-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Popup Container */
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+#popup.active {
+  display: block;
+}
+
+#popup img {
+  max-width: 150px;
+}
+
+#popup .align-text {
+  margin: 20px 0 10px;
+  color: #000;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.input-field input[type="email"] {
+  width: 100%;
+  padding: 15px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #060000;
+  font-size: 15px;
+  font-weight: 600;
+  outline: none;
+}
+
+.input-field .submit-btn {
+  width: 100%;
+  padding: 15px 20px;
+  color: #000;
+  background-color: rgb(232, 232, 13);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.input-field .submit-btn:hover {
+  background-color: #a8a1a1;
+}
+
+/* -------------------- */
+/* 🧭 Navbar */
+/* -------------------- */
+
+.navbar {
+  position: sticky;
   width: 100%;
   top: 0;
   background: rgba(255, 255, 255, 0.95);
@@ -23,7 +143,6 @@ body {
   padding: 15px 30px;
   z-index: 1000;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .navbar .container {
@@ -53,6 +172,10 @@ body {
   color: #667eea;
 }
 
+/* -------------------- */
+/* 🎨 Buttons */
+/* -------------------- */
+
 .btn {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
@@ -68,22 +191,9 @@ body {
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
-.content {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  z-index: -1;
-}
+/* -------------------- */
+/* 🌟 Hero Section */
+/* -------------------- */
 
 .hero {
   text-align: center;
@@ -93,6 +203,9 @@ body {
 .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-sub {
@@ -100,48 +213,42 @@ body {
   font-size: 1.2rem;
 }
 
-.hero-ctas {
-  margin-top: 20px;
-}
+/* -------------------- */
+/* 📚 Featured Section */
+/* -------------------- */
 
 .featured-section {
   padding: 80px 20px;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  margin: 20px;
   border-radius: 20px;
+  margin: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   color: #fff;
-}
-
-.featured-section p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.1rem;
-  line-height: 1.8;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .featured-title {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.featured-cards {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
+/* -------------------- */
+/* 📦 Flip Cards */
+/* -------------------- */
 
 .flip-card {
   background: transparent;
   width: 280px;
   height: 200px;
   perspective: 1000px;
+  transition: transform 0.3s ease;
+}
+
+.flip-card:hover {
+  transform: translateY(-5px);
 }
 
 .flip-card-front,
@@ -151,22 +258,18 @@ body {
   position: absolute;
   backface-visibility: hidden;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .flip-card-front {
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .flip-card-back {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
   transform: rotateY(180deg);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .flip-card:hover .flip-card-front {
@@ -176,6 +279,10 @@ body {
 .flip-card:hover .flip-card-back {
   transform: rotateY(0);
 }
+
+/* -------------------- */
+/* 📬 Feedback Form */
+/* -------------------- */
 
 .feedback-form {
   display: flex;
@@ -200,73 +307,19 @@ body {
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-.submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-}
-
-.feedback-list {
-  margin-top: 20px;
-}
-
-#popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 320px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-#popup.active {
-  display: block;
-}
-
-.close {
-  float: right;
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-.subscribe-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 50%;
-  padding: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
-
-.subscribe-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
-}
-
-.bell {
-  width: 30px;
-}
+/* -------------------- */
+/* ⚫ Footer */
+/* -------------------- */
 
 .footer {
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
-  color: white;
+  background: #000;
+  color: #fff;
+  padding: 40px 20px 20px;
   text-align: center;
-  padding: 40px 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Times New Roman', serif;
+  border-top: 2px solid #fded36;
 }
 
 .footer-wrapper {
@@ -288,12 +341,37 @@ body {
   opacity: 0.8;
 }
 
+/* -------------------- */
+/* 📖 Book Suggestions */
+/* -------------------- */
+
+#book-suggestions {
+  background-color: #3b0a45 !important;
+  color: #f9e6ff;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 5px solid #a020f0;
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+#suggestions-list {
+  margin-top: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#suggestions-list h3 {
+  color: #ffb3ff;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
 
 /* -------------------- */
-/* 🌐 Responsive Design */
+/* 📱 Responsive Design */
 /* -------------------- */
 
-/* Tablet View (up to 1024px) */
 @media (max-width: 1024px) {
   .navbar .container {
     flex-direction: column;
@@ -303,33 +381,18 @@ body {
   .featured-cards {
     gap: 20px;
   }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .featured-title {
-    font-size: 1.8rem;
-  }
 }
 
-/* Mobile View (up to 768px) */
 @media (max-width: 768px) {
   .navbar-list {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    display: none; /* hide menu by default for mobile */
+    display: none;
   }
 
   .navbar.active .navbar-list {
-    display: flex; /* show when active */
-  }
-
-  .navbar .menu-toggle {
-    display: block;
-    cursor: pointer;
-    font-size: 1.5rem;
+    display: flex;
   }
 
   .featured-cards {
@@ -337,77 +400,24 @@ body {
     align-items: center;
   }
 
-  .flip-card {
-    width: 90%;
-  }
-
-  .hero-title {
-    font-size: 1.8rem;
-  }
-
-  .hero-sub {
-    font-size: 1rem;
-  }
-
-  .feedback-form {
-    width: 90%;
-  }
-
   .footer-wrapper {
     flex-direction: column;
     gap: 30px;
   }
-}
 
-/* Very Small Devices (up to 480px) */
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.5rem;
+  #book-suggestions {
+    padding: 40px 15px;
   }
 
-  .hero-sub {
-    font-size: 0.9rem;
-  }
-
-  .btn, .submit-btn {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-  }
-
-  .footer {
-    padding: 20px;
-  }
-
-  .subscribe-btn {
-    bottom: 15px;
-    right: 15px;
-    padding: 10px;
-  }
-
-  .bell {
-    width: 25px;
+  #suggestions-list {
+    padding: 0 10px;
   }
 }
 
-/* --------------------------- */
-/* 🌟 Smooth transitions & UX */
-/* --------------------------- */
-a,
-button,
-input,
-textarea {
-  transition: all 0.3s ease;
-}
+/* -------------------- */
+/* 🌙 Dark Mode */
+/* -------------------- */
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* --------------------------- */
-/* 🌙 Optional Dark Mode Setup */
-/* --------------------------- */
 @media (prefers-color-scheme: dark) {
   body {
     background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
@@ -423,36 +433,14 @@ img {
     color: #fff;
   }
 
-  .navbar-list a:hover {
-    color: #667eea;
-  }
-
-  .footer {
-    background: rgba(0, 0, 0, 0.9);
-  }
-
   .flip-card-front {
     background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-  }
-
-  .flip-card-back {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
 }
 
-/* Professional Animation Enhancements */
-.featured-section {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.flip-card {
-  transition: transform 0.3s ease;
-}
-
-.flip-card:hover {
-  transform: translateY(-5px);
-}
+/* -------------------- */
+/* ✨ Animations */
+/* -------------------- */
 
 @keyframes fadeInUp {
   from {
@@ -465,28 +453,7 @@ img {
   }
 }
 
-/* Smooth scroll behavior */
+/* Smooth scroll */
 html {
   scroll-behavior: smooth;
-}
-
-/* Professional gradient text effect for hero */
-.hero-title {
-  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Enhanced focus states for accessibility */
-.btn:focus,
-.submit-btn:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.5);
-  outline-offset: 2px;
-}
-
-/* Professional loading animation for interactive elements */
-.flip-card-front,
-.flip-card-back {
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }

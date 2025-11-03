@@ -47,20 +47,39 @@
           </li>
         </ul>
       </div>
-    </nav>
+      <ul class="navbar-list">
+        <li><a href="#home" class="link active">Home</a></li>
+        <li><a href="#about" class="link">About</a></li>
+        <li><a href="#services" class="link">Services</a></li>
+        <li><a href="#book-suggestions" class="link">Books</a></li>
+        <li><a href="#contact" class="link">Contact</a></li>
+        <li><a href="./signin.html" class="btn" id="login">Sign In</a></li>
+        <li><a href="#" class="btn" id="logout" style="display: none;" onclick="logout(event)">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Home -->
-    <section id="home" class="content">
-      <img src="bg.png" alt="Background" class="img" loading="lazy" />
-      <div class="hero">
-        <div class="hero-inner">
-          <h1 class="hero-title">Build beautiful experiences</h1>
-          <p class="hero-sub">
-            We design modern, responsive websites and apps that delight users.
-          </p>
-          <div class="hero-ctas">
-            <a href="./signin.html" class="btn primary">Get Started</a>
-            <a href="#services" class="btn ghost">Our Services</a>
+  <!-- Home Section -->
+  <section id="home" class="content">
+    <img src="bg.png" alt="Background" class="img" loading="lazy">
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="featured-section">
+    <h2 class="featured-title">About Us</h2>
+    <p>Welcome to our website! We are dedicated to creating engaging and interactive experiences for our users.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="featured-section">
+    <h2 class="featured-title">Our Services</h2>
+    <div class="featured-cards">
+      <div class="flip-card">
+        <div class="flip-card-front">
+          <div class="inner">
+            <img src="service1.png" alt="Service" class="icon">
+            <h3>Web Design</h3>
+            <p>Modern responsive designs for your business.</p>
           </div>
         </div>
       </div>
@@ -196,34 +215,194 @@
         <button type="submit" class="submit-btn">Submit</button>
       </form>
     </div>
+  </section>
 
-    <!-- Floating Subscribe Button -->
-    <div class="subscribe-btn" id="openPopup">
-      <img src="bell.png" alt="Subscribe" class="bell" />
+  <!-- Book Suggestions Section -->
+  <section id="book-suggestions" class="featured-section">
+    <h2 class="featured-title">Book Suggestions</h2>
+    <p>Share your book recommendations with others nearby!</p>
+    
+    <form id="suggestion-form">
+      <input type="text" id="userName" placeholder="Your Name" required>
+      <input type="email" id="userEmail" placeholder="Your Email" required>
+      <input type="text" id="userLocation" placeholder="Your Location (City/Area)" required>
+      <textarea id="bookSuggestion" placeholder="Book suggestion and why you recommend it..." rows="4" required></textarea>
+      <button type="submit">Share Suggestion</button>
+    </form>
+
+    <div id="suggestions-list" style="margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+      <h3 style="color: #ffb3ff; margin-bottom: 20px;">Recent Suggestions</h3>
+      <div id="suggestions-container"></div>
     </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-wrapper">
-        <div class="footer-contact">
-          <h3>Contact</h3>
-          <p>Email: info@example.com</p>
-          <p>Phone: +91 9876543210</p>
-        </div>
-        <div class="footer-social">
-          <h3>Follow Us</h3>
-          <p><a href="#">Instagram</a></p>
-          <p><a href="#">Twitter</a></p>
-          <p><a href="#">LinkedIn</a></p>
-        </div>
+  <!-- Contact Section -->
+  <section id="contact" class="featured-section">
+    <h2 class="featured-title">Contact Us</h2>
+    <p>Email: contact@example.com</p>
+    <p>Phone: +91 9876543210</p>
+  </section>
+
+  <!-- Popup -->
+  <div id="popup">
+    <img src="newsletter.png" class="newsletter" alt="Subscribe">
+    <span class="close"><img src="close.png" class="close-icon" alt="Close"></span>
+    <h2 class="align-text">Subscribe to Upload Template</h2>
+
+    <form id="uploadForm" class="input-field">
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="fileUpload" style="font-weight:600;">Upload your template:</label>
+      <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.zip,.docx,.png,.jpg" required>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <div class="subscribe-btn">
+    <img src="bell.png" alt="Subscribe" class="bell">
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-wrapper">
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p>Email: info@example.com</p>
+        <p>Phone: +91 9876543210</p>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 Interactive Website. All rights reserved.</p>
         <p class="footer-dev">Developed by Dwarakesh Gupta</p>
       </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Interactive Website. All rights reserved.</p>
+      <p class="footer-dev">Developed by Dwarakesh Gupta</p>
+    </div>
+  </footer>
 
-    <!-- JS -->
-    <script src="script.js"></script>
-  </body>
+  <!-- JS -->
+  <script>
+    $(document).ready(function () {
+      // Navbar toggle
+      $(".menu-toggle").on("click", function () {
+        $(this).toggleClass("menu-open");
+        $(".navbar-list").toggleClass("active");
+      });
+
+      $(".link").on("click", function () {
+        $(".link").removeClass("active");
+        $(this).addClass("active");
+        $(".navbar-list").removeClass("active");
+        $(".menu-toggle").removeClass("menu-open");
+      });
+
+      // Popup open/close
+      $('.subscribe-btn').on("click", function () {
+        $("#popup").addClass("active");
+      });
+
+      $(".close").on("click", function () {
+        $("#popup").removeClass("active");
+      });
+
+      // File upload form
+      $("#uploadForm").on("submit", function (e) {
+        e.preventDefault();
+        const email = $("#email").val();
+        const file = $("#fileUpload")[0].files[0];
+        if (!email || !file) {
+          alert("Please provide both email and file!");
+          return;
+        }
+        alert("Template uploaded successfully by " + email + "!");
+        $("#popup").removeClass("active");
+        this.reset();
+      });
+
+      // Book suggestions form
+      loadSuggestions();
+
+      $("#suggestion-form").on("submit", function (e) {
+        e.preventDefault();
+        
+        const suggestion = {
+          name: $("#userName").val().trim(),
+          email: $("#userEmail").val().trim(),
+          location: $("#userLocation").val().trim(),
+          book: $("#bookSuggestion").val().trim(),
+          date: new Date().toLocaleDateString()
+        };
+
+        // Get existing suggestions from memory
+        let suggestions = [];
+        try {
+          const stored = localStorage.getItem('bookSuggestions');
+          if (stored) {
+            suggestions = JSON.parse(stored);
+          }
+        } catch (e) {
+          suggestions = [];
+        }
+        
+        suggestions.unshift(suggestion); // Add to beginning
+        
+        // Keep only last 20 suggestions
+        if (suggestions.length > 20) {
+          suggestions = suggestions.slice(0, 20);
+        }
+        
+        try {
+          localStorage.setItem('bookSuggestions', JSON.stringify(suggestions));
+        } catch (e) {
+          console.log('Storage not available, using session only');
+        }
+        
+        alert("Thank you! Your book suggestion has been shared.");
+        this.reset();
+        loadSuggestions();
+      });
+
+      function loadSuggestions() {
+        let suggestions = [];
+        try {
+          const stored = localStorage.getItem('bookSuggestions');
+          if (stored) {
+            suggestions = JSON.parse(stored);
+          }
+        } catch (e) {
+          suggestions = [];
+        }
+        
+        const container = $("#suggestions-container");
+        
+        if (suggestions.length === 0) {
+          container.html('<p style="color: #f5d0ff; font-style: italic;">No suggestions yet. Be the first to share!</p>');
+          return;
+        }
+        
+        let html = '';
+        suggestions.forEach(function(s) {
+          html += `
+            <div style="background-color: #4b145d; padding: 20px; margin-bottom: 15px; border-radius: 8px; border-left: 4px solid #a855f7; text-align: left;">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; flex-wrap: wrap;">
+                <div>
+                  <strong style="color: #ffb3ff; font-size: 1.1rem;">${s.name}</strong>
+                  <p style="color: #e5b8ff; margin: 5px 0; font-size: 0.9rem;">📍 ${s.location}</p>
+                </div>
+                <span style="color: #a855f7; font-size: 0.85rem;">${s.date}</span>
+              </div>
+              <p style="color: #f9e6ff; line-height: 1.6; margin: 10px 0;">${s.book}</p>
+              <a href="mailto:${s.email}" style="color: #a020f0; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-top: 8px; padding: 5px 12px; background-color: rgba(160, 32, 240, 0.2); border-radius: 4px;">📧 Contact</a>
+            </div>
+          `;
+        });
+        
+        container.html(html);
+      }
+    });
+  </script>
+
+</body>
 </html>
