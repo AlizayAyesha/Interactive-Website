@@ -17,13 +17,16 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
   <body>
     <!-- Navbar -->
     <nav class="navbar">
       <div class="container">
-        <a href="#home"><img src="logo.png" alt="Logo" class="logo" /></a>
+        <a href="#home"><img src="logo.png" alt="Logo" class="logo" /><span class="site-name">FreeBookShare Hub</span></a>
         <div class="menu-toggle" id="menuToggle">
           <div class="bar"></div>
           <div class="bar"></div>
@@ -47,27 +50,22 @@
           </li>
         </ul>
       </div>
-      <ul class="navbar-list">
-        <li><a href="#home" class="link active">Home</a></li>
-        <li><a href="#about" class="link">About</a></li>
-        <li><a href="#services" class="link">Services</a></li>
-        <li><a href="#book-suggestions" class="link">Books</a></li>
-        <li><a href="#contact" class="link">Contact</a></li>
-        <li><a href="./signin.html" class="btn" id="login">Sign In</a></li>
-        <li><a href="#" class="btn" id="logout" style="display: none;" onclick="logout(event)">Logout</a></li>
-      </ul>
-    </div>
+    </nav>
   </nav>
 
   <!-- Home Section -->
-  <section id="home" class="content">
-    <img src="bg.png" alt="Background" class="img" loading="lazy">
+  <section id="home" class="hero-section">
+    <div class="hero-overlay">
+      <h1>Welcome to <span>BookShare Hub</span></h1>
+      <p>Discover, Share, and Read Amazing Books Together 📚</p>
+      <a href="#book-suggestions" class="hero-btn">Start Sharing</a>
+    </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="featured-section">
-    <h2 class="featured-title">About Us</h2>
-    <p>Welcome to our website! We are dedicated to creating engaging and interactive experiences for our users.</p>
+  <section id="about" class="featured-section background-color= wo">
+    <h2 class="featured-title">About BookShare Hub</h2>
+    <p>Welcome to BookShare Hub - your ultimate destination for discovering and sharing amazing books! We believe in the power of free knowledge sharing. Our community-driven platform allows readers to upload and share PDF versions of their favorite books, categorized by genre, helping fellow book lovers access quality reading materials completely free.</p>
   </section>
 
   <!-- Services Section -->
@@ -77,161 +75,136 @@
       <div class="flip-card">
         <div class="flip-card-front">
           <div class="inner">
-            <img src="service1.png" alt="Service" class="icon">
-            <h3>Web Design</h3>
-            <p>Modern responsive designs for your business.</p>
+            <img src="https://i.ytimg.com/vi/Ul9-RxU5tH8/maxresdefault.jpg" alt="Service" class="icon" />
+            <h3>Book Curation</h3>
+            <p>Carefully curated book collections by genre and popularity.</p>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <div class="inner">
+            <h3>Book Curation</h3>
+            <p>
+              Our expert curators review and organize books by genre, ensuring
+              quality content for our community of readers.
+            </p>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- About -->
-    <section id="about" class="featured-section">
-      <h2 class="featured-title">About Us</h2>
-      <p>
-        Welcome to our website! We are dedicated to creating engaging and
-        interactive experiences for our users.
-      </p>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="featured-section">
-      <h2 class="featured-title">Our Services</h2>
-      <div class="featured-cards">
-        <div class="flip-card">
-          <div class="flip-card-front">
-            <div class="inner">
-              <img src="service1.png" alt="Service" class="icon" />
-              <h3>Web Design</h3>
-              <p>Modern responsive designs for your business.</p>
-            </div>
-          </div>
-          <div class="flip-card-back">
-            <div class="inner">
-              <h3>Web Design</h3>
-              <p>
-                We design visually appealing and responsive websites using the
-                latest technologies.
-              </p>
-            </div>
+      <div class="flip-card">
+        <div class="flip-card-front">
+          <div class="inner">
+            <img src="https://bplugins.com/wp-content/uploads/2025/09/pdf-poster.png" alt="PDF Hosting" class="icon" />
+            <h3>PDF Hosting</h3>
+            <p>Secure and fast PDF hosting for seamless reading experience.</p>
           </div>
         </div>
-
-        <div class="flip-card">
-          <div class="flip-card-front">
-            <div class="inner">
-              <h3>App Development</h3>
-              <p>Custom mobile apps for Android and iOS platforms.</p>
-            </div>
-          </div>
-          <div class="flip-card-back">
-            <div class="inner">
-              <h3>App Development</h3>
-              <p>
-                Build powerful and user-friendly applications tailored to your
-                needs.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card">
-          <div class="flip-card-front">
-            <div class="inner">
-              <h3>Cloud Deployment</h3>
-              <p>Reliable cloud hosting and AWS integration.</p>
-            </div>
-          </div>
-          <div class="flip-card-back">
-            <div class="inner">
-              <h3>Cloud Deployment</h3>
-              <p>
-                We deploy and manage your apps on secure cloud environments like
-                AWS.
-              </p>
-            </div>
+        <div class="flip-card-back">
+          <div class="inner">
+            <h3>PDF Hosting</h3>
+            <p>
+              Reliable cloud hosting ensures your uploaded books are always
+              accessible with fast download speeds.
+            </p>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact" class="featured-section">
-      <h2 class="featured-title">Contact Us</h2>
-      <p>Email: contact@example.com</p>
-      <p>Phone: +91 9876543210</p>
-    </section>
-
-    <!-- Feedback -->
-    <section id="feedback" class="featured-section">
-      <h2 class="featured-title">Feedback</h2>
-      <p>We’d love to hear your thoughts! Leave a comment below.</p>
-
-      <form id="feedbackForm" class="feedback-form">
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your Name"
-          required
-        />
-        <textarea
-          id="comment"
-          name="comment"
-          rows="4"
-          placeholder="Your Feedback..."
-          required
-        ></textarea>
-        <button type="submit" class="submit-btn">Submit Feedback</button>
-      </form>
-
-      <div id="feedbackList" class="feedback-list"></div>
-    </section>
-
-    <!-- Popup -->
-    <div id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-      <img src="newsletter.png" class="newsletter" alt="Subscribe" />
-      <button class="close" aria-label="Close popup" id="closePopup">✖</button>
-      <h2 class="align-text">Subscribe to Upload Template</h2>
-
-      <form id="uploadForm" class="input-field">
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Enter your email"
-          required
-        />
-        <label for="fileUpload" style="font-weight: 600"
-          >Upload your template:</label
-        >
-        <input
-          type="file"
-          id="fileUpload"
-          name="fileUpload"
-          accept=".pdf,.zip,.docx,.png,.jpg"
-          required
-        />
-        <button type="submit" class="submit-btn">Submit</button>
-      </form>
+      <div class="flip-card">
+        <div class="flip-card-front">
+          <div class="inner">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRknnUaGT-0vEZY_tA8gRdq8GL4z9E0fOiyAg&s" alt="Genre Organization" class="icon" />
+            <h3>Genre Organization</h3>
+            <p>Books organized by genres for easy discovery and browsing.</p>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <div class="inner">
+            <h3>Genre Organization</h3>
+            <p>
+              Find exactly what you're looking for with our comprehensive genre
+              categorization system.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Book Suggestions Section -->
   <section id="book-suggestions" class="featured-section">
-    <h2 class="featured-title">Book Suggestions</h2>
-    <p>Share your book recommendations with others nearby!</p>
-    
-    <form id="suggestion-form">
-      <input type="text" id="userName" placeholder="Your Name" required>
-      <input type="email" id="userEmail" placeholder="Your Email" required>
-      <input type="text" id="userLocation" placeholder="Your Location (City/Area)" required>
-      <textarea id="bookSuggestion" placeholder="Book suggestion and why you recommend it..." rows="4" required></textarea>
-      <button type="submit">Share Suggestion</button>
+    <h2 class="featured-title">Share Your Favorite Books</h2>
+    <p>Share your favorite books with our community! Upload PDFs and help fellow readers discover amazing stories.</p>
+
+    <form id="suggestion-form" class="suggestion-form">
+      <div class="form-group">
+        <input type="text" id="userName" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" id="userEmail" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="userLocation" placeholder="Your Location (City/Area)" required>
+      </div>
+      <div class="form-group">
+        <select id="bookGenre" required>
+          <option value="">Select Genre</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Romance">Romance</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Biography">Biography</option>
+          <option value="Self-Help">Self-Help</option>
+          <option value="History">History</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Horror">Horror</option>
+          <option value="Poetry">Poetry</option>
+          <option value="Children's">Children's</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="text" id="bookTitle" placeholder="Book Title" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="bookAuthor" placeholder="Author Name" required>
+      </div>
+      <div class="form-group">
+        <textarea id="bookSuggestion" placeholder="Why do you recommend this book? Share your thoughts..." rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <input type="url" id="bookReference" placeholder="Reference Link (Website or Drive Link, Optional)">
+      </div>
+      <div class="form-group">
+        <label for="bookPdf" style="font-weight: 600; color: #a855f7;">Upload PDF (Optional)</label>
+        <input type="file" id="bookPdf" accept=".pdf" style="margin-top: 8px;">
+      </div>
+      <button type="submit" class="btn">Share Book</button>
     </form>
 
-    <div id="suggestions-list" style="margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
-      <h3 style="color: #ffb3ff; margin-bottom: 20px;">Recent Suggestions</h3>
+    <div id="suggestions-list">
+      <h3>Recently Shared Books</h3>
+      <div id="genre-filter" style="margin-bottom: 20px;">
+        <select id="filterGenre" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #a855f7; background-color: #2a0845; color: #f9e6ff;">
+          <option value="all">All Genres</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Romance">Romance</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Biography">Biography</option>
+          <option value="Self-Help">Self-Help</option>
+          <option value="History">History</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Horror">Horror</option>
+          <option value="Poetry">Poetry</option>
+          <option value="Children's">Children's</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
       <div id="suggestions-container"></div>
     </div>
   </section>
@@ -239,28 +212,96 @@
   <!-- Contact Section -->
   <section id="contact" class="featured-section">
     <h2 class="featured-title">Contact Us</h2>
-    <p>Email: contact@example.com</p>
-    <p>Phone: +91 9876543210</p>
+    <p>Email: sherlockholme898@gmail.com</p>
+  </section>
+
+  <!-- Feedback Section -->
+  <section id="feedback" class="featured-section">
+    <h2 class="featured-title">Feedback</h2>
+    <p>We'd love to hear your thoughts! Leave a comment below.</p>
+
+    <form id="feedbackForm" class="feedback-form">
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Your Name"
+        required
+      />
+      <textarea
+        id="comment"
+        name="comment"
+        rows="4"
+        placeholder="Your Feedback..."
+        required
+      ></textarea>
+      <button type="submit" class="submit-btn">Submit Feedback</button>
+    </form>
+
+    <div id="feedbackList" class="feedback-list"></div>
   </section>
 
   <!-- Popup -->
-  <div id="popup">
-    <img src="newsletter.png" class="newsletter" alt="Subscribe">
-    <span class="close"><img src="close.png" class="close-icon" alt="Close"></span>
-    <h2 class="align-text">Subscribe to Upload Template</h2>
+  <div id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+    <div class="newsletter-placeholder" style="width: 170px; height: 170px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; color: white; font-size: 24px; font-weight: bold;">📚</div>
+    <button class="close" aria-label="Close popup" id="closePopup">✖</button>
+    <h2 class="align-text">Upload Your Favorite Book PDF</h2>
 
     <form id="uploadForm" class="input-field">
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-      <label for="fileUpload" style="font-weight:600;">Upload your template:</label>
-      <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.zip,.docx,.png,.jpg" required>
-
-      <button type="submit" class="submit-btn">Submit</button>
+      <input
+        type="email"
+        id="uploadEmail"
+        name="email"
+        placeholder="Enter your email"
+        required
+      />
+      <input
+        type="text"
+        id="uploadBookTitle"
+        name="bookTitle"
+        placeholder="Book Title"
+        required
+      />
+      <input
+        type="text"
+        id="uploadBookAuthor"
+        name="bookAuthor"
+        placeholder="Author Name"
+        required
+      />
+      <select id="uploadBookGenre" name="genre" required>
+        <option value="">Select Genre</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Non-Fiction">Non-Fiction</option>
+        <option value="Mystery">Mystery</option>
+        <option value="Romance">Romance</option>
+        <option value="Science Fiction">Science Fiction</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Biography">Biography</option>
+        <option value="Self-Help">Self-Help</option>
+        <option value="History">History</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Horror">Horror</option>
+        <option value="Poetry">Poetry</option>
+        <option value="Children's">Children's</option>
+        <option value="Other">Other</option>
+      </select>
+      <label for="fileUpload" style="font-weight: 600"
+        >Upload PDF:</label
+      >
+      <input
+        type="file"
+        id="fileUpload"
+        name="fileUpload"
+        accept=".pdf"
+        required
+      />
+      <button type="submit" class="submit-btn">Share Book</button>
     </form>
   </div>
 
   <div class="subscribe-btn">
-    <img src="bell.png" alt="Subscribe" class="bell">
+    <div class="bell" style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px;">🔔</div>
   </div>
 
   <!-- Footer -->
@@ -268,17 +309,30 @@
     <div class="footer-wrapper">
       <div class="footer-contact">
         <h3>Contact</h3>
-        <p>Email: info@example.com</p>
-        <p>Phone: +91 9876543210</p>
+        <p>Email: sherlockholme898@gmail.com</p>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Interactive Website. All rights reserved.</p>
-        <p class="footer-dev">Developed by Dwarakesh Gupta</p>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About BookShare Hub</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Interactive Website. All rights reserved.</p>
-      <p class="footer-dev">Developed by Dwarakesh Gupta</p>
+      <p>&copy; 2025 BookShare Hub. All rights reserved.</p>
+      <p class="footer-dev">Developed by Alizay Ayesha</p>
     </div>
   </footer>
 
@@ -310,95 +364,122 @@
       // File upload form
       $("#uploadForm").on("submit", function (e) {
         e.preventDefault();
-        const email = $("#email").val();
+        const email = $("#uploadEmail").val();
+        const title = $("#uploadBookTitle").val();
+        const author = $("#uploadBookAuthor").val();
+        const genre = $("#uploadBookGenre").val();
         const file = $("#fileUpload")[0].files[0];
-        if (!email || !file) {
-          alert("Please provide both email and file!");
+        if (!email || !title || !author || !genre || !file) {
+          alert("Please fill all required fields and upload a PDF!");
           return;
         }
-        alert("Template uploaded successfully by " + email + "!");
+        alert("Book uploaded successfully by " + email + "! Thank you for sharing!");
         $("#popup").removeClass("active");
         this.reset();
       });
 
-      // Book suggestions form
-      loadSuggestions();
+      // Book sharing form
+      loadBooks();
 
       $("#suggestion-form").on("submit", function (e) {
         e.preventDefault();
-        
-        const suggestion = {
+
+        const book = {
           name: $("#userName").val().trim(),
           email: $("#userEmail").val().trim(),
           location: $("#userLocation").val().trim(),
-          book: $("#bookSuggestion").val().trim(),
+          genre: $("#bookGenre").val(),
+          title: $("#bookTitle").val().trim(),
+          author: $("#bookAuthor").val().trim(),
+          review: $("#bookSuggestion").val().trim(),
+          referenceLink: $("#bookReference").val().trim(),
+          hasPdf: $("#bookPdf")[0].files.length > 0,
           date: new Date().toLocaleDateString()
         };
 
-        // Get existing suggestions from memory
-        let suggestions = [];
+        // Get existing books from memory
+        let books = [];
         try {
-          const stored = localStorage.getItem('bookSuggestions');
+          const stored = localStorage.getItem('sharedBooks');
           if (stored) {
-            suggestions = JSON.parse(stored);
+            books = JSON.parse(stored);
           }
         } catch (e) {
-          suggestions = [];
+          books = [];
         }
-        
-        suggestions.unshift(suggestion); // Add to beginning
-        
-        // Keep only last 20 suggestions
-        if (suggestions.length > 20) {
-          suggestions = suggestions.slice(0, 20);
+
+        books.unshift(book); // Add to beginning
+
+        // Keep only last 20 books
+        if (books.length > 20) {
+          books = books.slice(0, 20);
         }
-        
+
         try {
-          localStorage.setItem('bookSuggestions', JSON.stringify(suggestions));
+          localStorage.setItem('sharedBooks', JSON.stringify(books));
         } catch (e) {
           console.log('Storage not available, using session only');
         }
-        
-        alert("Thank you! Your book suggestion has been shared.");
+
+        alert("Thank you! Your book has been shared with the community.");
         this.reset();
-        loadSuggestions();
+        loadBooks();
       });
 
-      function loadSuggestions() {
-        let suggestions = [];
+      // Genre filter
+      $("#filterGenre").on("change", function () {
+        loadBooks();
+      });
+
+      function loadBooks() {
+        let books = [];
         try {
-          const stored = localStorage.getItem('bookSuggestions');
+          const stored = localStorage.getItem('sharedBooks');
           if (stored) {
-            suggestions = JSON.parse(stored);
+            books = JSON.parse(stored);
           }
         } catch (e) {
-          suggestions = [];
+          books = [];
         }
-        
+
+        const selectedGenre = $("#filterGenre").val();
+        if (selectedGenre !== "all") {
+          books = books.filter(book => book.genre === selectedGenre);
+        }
+
         const container = $("#suggestions-container");
-        
-        if (suggestions.length === 0) {
-          container.html('<p style="color: #f5d0ff; font-style: italic;">No suggestions yet. Be the first to share!</p>');
+
+        if (books.length === 0) {
+          const message = selectedGenre === "all" ?
+            "No books shared yet. Be the first to share!" :
+            `No ${selectedGenre} books shared yet.`;
+          container.html(`<p style="color: #f5d0ff; font-style: italic;">${message}</p>`);
           return;
         }
-        
+
         let html = '';
-        suggestions.forEach(function(s) {
+        books.forEach(function(b) {
+          const pdfIcon = b.hasPdf ? ' 📄' : '';
+          const referenceLink = b.referenceLink ? `<a href="${b.referenceLink}" target="_blank" style="color: #a855f7; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-top: 8px; padding: 5px 12px; background-color: rgba(168, 85, 247, 0.2); border-radius: 4px;">🔗 Reference Link</a>` : '';
           html += `
             <div style="background-color: #4b145d; padding: 20px; margin-bottom: 15px; border-radius: 8px; border-left: 4px solid #a855f7; text-align: left;">
               <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; flex-wrap: wrap;">
                 <div>
-                  <strong style="color: #ffb3ff; font-size: 1.1rem;">${s.name}</strong>
-                  <p style="color: #e5b8ff; margin: 5px 0; font-size: 0.9rem;">📍 ${s.location}</p>
+                  <strong style="color: #ffb3ff; font-size: 1.1rem;">"${b.title}" by ${b.author}</strong>
+                  <p style="color: #e5b8ff; margin: 5px 0; font-size: 0.9rem;">📍 ${b.location} • ${b.genre}${pdfIcon}</p>
                 </div>
-                <span style="color: #a855f7; font-size: 0.85rem;">${s.date}</span>
+                <span style="color: #a855f7; font-size: 0.85rem;">${b.date}</span>
               </div>
-              <p style="color: #f9e6ff; line-height: 1.6; margin: 10px 0;">${s.book}</p>
-              <a href="mailto:${s.email}" style="color: #a020f0; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-top: 8px; padding: 5px 12px; background-color: rgba(160, 32, 240, 0.2); border-radius: 4px;">📧 Contact</a>
+              <p style="color: #f9e6ff; line-height: 1.6; margin: 10px 0; font-style: italic;">"${b.review}"</p>
+              <p style="color: #ffb3ff; margin: 5px 0; font-size: 0.9rem;">Shared by: ${b.name}</p>
+              <div style="margin-top: 10px;">
+                <a href="mailto:${b.email}" style="color: #a020f0; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-right: 10px; padding: 5px 12px; background-color: rgba(160, 32, 240, 0.2); border-radius: 4px;">📧 Contact</a>
+                ${referenceLink}
+              </div>
             </div>
           `;
         });
-        
+
         container.html(html);
       }
     });
